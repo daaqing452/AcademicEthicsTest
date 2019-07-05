@@ -1,0 +1,18 @@
+.DS_Store
+/media/*
+/文档/*
+/AcademicEthicsTest/*.pyc
+/AcademicEthicsTest/__pycache__/*.pyc
+# /AcademicEthicsTest/settings.py
+/SUser/.DS_Store
+/SUser/migrations/*
+/SUser/__pycache__/*.pyc
+/SUser/*.pyc
+/Survey/.DS_Store
+/Survey/migrations/*.
+/Survey/__pycache__/*.pyc
+/Survey/*.pyc
+/static/.DS_Store
+/static/js/.DS_Store
+/static/template/.DS_Store
+
