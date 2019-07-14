@@ -1,0 +1,220 @@
+br
+{
+	color: red;
+}
+.num_input
+{
+	width: 5%;
+}
+.inner_input
+{
+	width: 100%;
+}
+.div_q
+{
+	padding-top: 15px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.q_buttons
+{
+	display: none;
+}
+.div_q_mouseout
+{
+	border: 1px solid transparent;
+}
+.div_q_mouseout:hover
+{
+	border: 1px dashed gray;
+}
+hr
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.q_buttons
+{
+	text-align: right;
+}
+
+li
+{
+	list-style-type:none;
+	margin-bottom:0;
+}
+
+.q_header
+{
+	margin-bottom: 6px;
+	margin-top: 0px;
+}
+.q_content
+{
+	font-size: 15px;
+}
+.q_item
+{
+	margin-bottom: 2px;
+	margin-top: 2px;
+}
+#title, #description
+{
+	width: 100%;
+}
+#title_div
+{
+	color: gray;
+	font-weight: bold;
+}
+#description_div
+{
+	color: gray;
+	font-weight: bold;
+}
+#title_wrapper
+{
+	text-align:center;
+	margin-top:20px;
+	margin-bottom:10px;
+	font-size:27px;
+}
+#description_wrapper
+{
+	text-align:center;
+	margin-top:10px;
+	margin-bottom:20px;
+	font-size:20px;
+}
+.img_col
+{
+	width:40%;
+}
+.text_col
+{
+	width:35%;
+}
+.op_col
+{
+	width:15%;
+}
+.sm_col
+{
+	width:10%;
+}
+#options
+{
+	table-layout: fixed;
+}
+.single #show_ans_div, .single #score_count_div, .single #vote_info, .single #test_info, .single #multi_info, .single #sign_info
+{
+	display: none;
+}
+
+.single tr > *:nth-child(4), .single tr > *:nth-child(5){
+    display: none;
+}
+
+.multi #show_ans_div, .multi #score_count_div, .multi #vote_info, .multi #test_info, .multi #sign_info
+{
+	display: none;
+}
+
+.multi tr > *:nth-child(4), .multi tr > *:nth-child(5){
+    display: none;
+}
+
+.test_single #vote_info, .test_single #sign_info, .test_single #multi_info
+{
+	display: none;
+}
+
+.test_single tr > *:nth-child(5){
+    display: none;
+}
+
+.test_multi #vote_info, .test_multi #sign_info, .test_multi #multi_info
+{
+	display: none;
+}
+
+.test_multi tr > *:nth-child(5){
+    display: none;
+}
+
+.vote_single #score_count_div, .vote_single #show_ans_div, .vote_single #sign_info, .vote_single #multi_info, .vote_single #test_info
+{
+	display: none;
+}
+
+.vote_single tr > *:nth-child(4), .vote_single tr > *:nth-child(5)
+{
+	display: none;
+}
+
+.vote_multi #score_count_div, .vote_multi #show_ans_div, .vote_multi #sign_info, .vote_multi #test_info
+{
+	display: none;
+}
+
+.vote_multi tr > *:nth-child(4), .vote_multi tr > *:nth-child(5)
+{
+	display: none;
+}
+
+.sign_single #score_count_div, .sign_single #show_ans_div, .sign_single #vote_info, .sign_single #multi_info, .sign_single #test_info
+{
+	display: none;
+}
+
+.sign_single tr > *:nth-child(4)
+{
+	display: none;
+}
+
+.sign_multi #score_count_div, .sign_multi #show_ans_div, .sign_multi #vote_info, .sign_multi #test_info
+{
+	display: none;
+}
+
+.sign_multi tr > *:nth-child(4)
+{
+	display: none;
+}
+
+.test_tf #vote_info, .test_tf #multi_info, .test_tf #sign_info
+{
+	display: none;
+}
+
+.test_tf tr > *:nth-child(5)
+{
+	display: none;
+}
+
+.blank #show_ans_div, .blank #score_count_div, .blank #test_info
+{
+	display: none;
+}
+
+.test_blank #validator_div
+{
+	display: none;
+}
+
+#image
+{
+
+}
+
+#fn_display
+{
+	display: none;
+}
+
+#test_info, #validator_div, #word_limit, #vote_info, #sign_info, #multi_info
+{
+	margin-bottom: 5px;
+	margin-top: 5px;
+}

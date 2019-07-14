@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 问卷页面 </title>
+    
+</head>
+
+<body>
+<div class="col-md-offset-2 col-md-8 ">
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="input-group">
+                <div class="input-group-addon" > 标题 </div>
+                <input type='text' id='title' style="width: 100%; height: 28px" />
+            </div>
+            </br>
+            <div class="btn-group" name="my-btn-group">
+                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal"  onclick="createSurvey(1)"> 单项选择 </button>
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" onclick="createSurvey(2)"> 多项选择 </button>
+            </div>
+            <br/>
+            <div style="text-align:left;width: 100%" >
+                <table id="questions"  style="table-layout:fixed;word-break:break-all;border: 0px;width: 100%" >
+                <tbody>
+                    
+                </tbody>
+                </table>
+            </div>
+            <button id="save_btn" class="btn btn-success " onclick="save()" style="float:right"> 暂存 </button>
+            <button id="release_btn" class="btn btn-success " onclick="release()" style="float:right"> 发布 </button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+          <div class="modal-dialog" style="width:1100px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+
+              </div>
+              <div class="modal-body" id="myModal_body"> 
+               
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-lg" data-dismiss="modal" onclick="closeModal()"> 关闭 </button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="commitS()">保存 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+          <div class="modal-dialog" style="width:1100px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+
+              </div>
+              <div class="modal-body" id="myModal_body2"> 
+               
+              </div>
+              <div class="modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+</div>
+    
+<link href='{% static 'bootstrap/css/bootstrap.min.css' %}' rel="stylesheet">
+<link href="{% static "kindeditor/themes/default/default.css" %}" rel="stylesheet">
+<script src='{% static 'js/jquery-3.1.1.min.js' %}'> </script>
+<script src='{% static 'js/jquery-ui.min.js' %}'> </script> 
+<script src='{% static 'bootstrap/js/bootstrap.min.js' %}'> </script>
+<!-- <script src='{% static 'js/survey.js' %}'> </script> -->
+<script src='{% static 'js/survey_create.js' %}'> </script>
+<script src="{% static "kindeditor/kindeditor-all.js" %}"></script>
+<script src="{% static "kindeditor/lang/zh-CN.js" %}"></script>
+
+</body>
+</html>
