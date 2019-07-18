@@ -4,4 +4,4 @@ from django.shortcuts import render
 
 
 def survey(request):
-	return render(request, "survey.html")
+	return render(request, "survey_create.html")
