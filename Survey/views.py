@@ -18,4 +18,4 @@ def survey(request):
 		print(qstring)
 		xxx
 
-	return render(request, "survey.html")
+	return render(request, "survey_create.html")
