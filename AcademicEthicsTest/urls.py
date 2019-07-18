@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
+from SUser.views import *
 from Survey.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$', survey)
+    url(r'^$', index),
+    url(r'^survey/$', survey),
 ]

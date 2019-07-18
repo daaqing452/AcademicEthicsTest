@@ -482,12 +482,12 @@ function save(){
     //s_type title [n_option [option1..] 
     //save Qstring into database
     var Qstring = JSON.stringify(questions);
-    var title = $('input#title').val();
+    //var title = $('input#title').val();
     
     $.ajax({
         url: window.location.pathname,
         type: 'POST',
-        data: {'op': 'save', 'title': title, 'qstring': Qstring},
+        data: {'op': 'save', 'qstring': Qstring},
         success: function(data) {
             data = JSON.parse(data);
             alert('暂存成功!');
