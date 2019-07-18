@@ -27,8 +27,8 @@
                 </tbody>
                 </table>
             </div>
-            <button id="save_btn" class="btn btn-success " onclick="save()" style="float:right"> 暂存 </button>
-            <button id="release_btn" class="btn btn-success " onclick="release()" style="float:right"> 发布 </button>
+            <!--<button id="save_btn" class="btn btn-success " onclick="save()" style="float:right"> 暂存 </button>-->
+            <button id="release_btn" class="btn btn-success " onclick="release()" style="float:right"> 保存 </button>
         </div>
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
@@ -77,6 +77,7 @@
 <script src='{% static 'js/survey_create.js' %}'> </script>
 <script src="{% static "kindeditor/kindeditor-all.js" %}"></script>
 <script src="{% static "kindeditor/lang/zh-CN.js" %}"></script>
+<script src='{% static 'js/csrf.js' %}'> </script>
 
 </body>
 </html>

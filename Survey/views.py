@@ -14,6 +14,8 @@ def survey(request):
 	rdata, op, suser = Utils.get_request_basis(request)
 
 	if op == 'save':
-		pass
+		qstring = request.POST.get('qstring')
+		print(qstring)
+		xxx
 
 	return render(request, "survey.html")

@@ -477,31 +477,12 @@ function clone(myObj){
     return new_obj;
 } 
 
-
-function save(){
-    //s_type title [n_option [option1..] 
-    //save Qstring into database
-    var Qstring = JSON.stringify(questions);
-    //var title = $('input#title').val();
-    
-    $.ajax({
-        url: window.location.pathname,
-        type: 'POST',
-        data: {'op': 'save', 'qstring': Qstring},
-        success: function(data) {
-            data = JSON.parse(data);
-            alert('暂存成功!');
-        }
-    });
-}
-
 function release() {
     var Qstring = JSON.stringify(questions);
-    var title = $('input#title').val();
     $.ajax({
         url: window.location.pathname,
         type: 'POST',
-        data: {'op': 'release', 'title': title, 'qstring': Qstring},
+        data: {'op': 'release', 'qstring': Qstring},
         success: function(data) {
             var data = JSON.parse(data);
             window.location.reload();
