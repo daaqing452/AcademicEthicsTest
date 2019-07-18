@@ -21,6 +21,11 @@ from Survey.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     url(r'^$', index),
-    url(r'^survey/$', survey),
+    url(r'^au/([a-z0-9]{1,20})/$', add_user),
+    url(r'^du/([a-z0-9]{1,20})/$', delete_user),
+    
+    url(r'^survey_create/$', survey_create),
+    url(r'^survey_fill/$', survey_fill),
 ]

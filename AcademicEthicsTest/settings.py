@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'AcademicEthicsTest.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'AcademicDatabase',
+        'USER': 'root',
+        'PASSWORD': 'SurveyDatabase',
+        'HOST': '127.0.0.1',
+        'OPTIONS': {'charset': 'utf8mb4'},
     }
 }
 

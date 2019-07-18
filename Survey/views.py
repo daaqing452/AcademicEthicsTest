@@ -10,12 +10,24 @@ from SUser.models import *
 from Survey.models import *
 import SUser.utils as Utils
 
-def survey(request):
+import json
+
+def survey_create(request):
 	rdata, op, suser = Utils.get_request_basis(request)
 
-	if op == 'save':
+	if op == 'release':
 		qstring = request.POST.get('qstring')
-		print(qstring)
-		xxx
+		qarray = json.loads(qstring)
+		for qdic in qarray:
+			question = Question.objects.create(founder='', question=json.dumps(qdic))
+		return HttpResponse(json.dumps(rdata))
+
+	return render(request, "survey_create.html")
+
+def survey_fill(request):
+	rdata, op, suser = Utils.get_request_basis(request)
+
+	if op == 'load':
+		
 
 	return render(request, "survey_create.html")

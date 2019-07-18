@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+class SUser(models.Model):
+	uid = models.IntegerField()
+	admin = models.BooleanField(default=0)

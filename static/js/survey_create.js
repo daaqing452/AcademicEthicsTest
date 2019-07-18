@@ -485,6 +485,7 @@ function release() {
         data: {'op': 'release', 'qstring': Qstring},
         success: function(data) {
             var data = JSON.parse(data);
+            alert("添加成功！");
             window.location.reload();
         }
     });
