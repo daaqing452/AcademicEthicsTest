@@ -15,8 +15,7 @@ $(document).ready(function(){
         data: {'op': 'load'},
         success: function(data) {
             var data = JSON.parse(data);
-            situation = data['status'];
-            title = data['title'];
+            title = 'xx';
             qstring = data['qstring'];
             now_time = new Date();
             load_time_format = gettimeformat(now_time);

@@ -15,12 +15,14 @@ import json
 def survey_create(request):
 	rdata, op, suser = Utils.get_request_basis(request)
 
+	if op == 'load':
+		jdata = {'qstring': Question.objects.all()[0].question}
+		return HttpResponse(json.dumps(jdata)) 
+
 	if op == 'release':
 		qstring = request.POST.get('qstring')
-		qarray = json.loads(qstring)
-		for qdic in qarray:
-			question = Question.objects.create(founder='', question=json.dumps(qdic))
-		return HttpResponse(json.dumps(rdata))
+		Question.objects.update(question=qstring)
+		return HttpResponse('{}')
 
 	return render(request, "survey_create.html")
 
@@ -28,12 +30,7 @@ def survey_fill(request):
 	rdata, op, suser = Utils.get_request_basis(request)
 
 	if op == 'load':
-		jdata = {}
-		questions = Question.objects.all()
-		qstring = [question.question for question in questions]
-		jdata['status'] = 1
-		jdata['title'] = 'xxx'
-		jdata['qstring'] = json.dumps(qstring)
+		jdata = {'qstring': Question.objects.all()[0].question}
 		return HttpResponse(json.dumps(jdata))
 
 	return render(request, "survey_fill.html")
