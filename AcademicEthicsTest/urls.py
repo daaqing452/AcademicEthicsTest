@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     url(r'^$', index),
+    url(r'^index/$', index),
     url(r'^au/([a-z0-9]{1,20})/$', add_user),
     url(r'^du/([a-z0-9]{1,20})/$', delete_user),
     

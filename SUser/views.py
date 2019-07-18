@@ -10,19 +10,65 @@ from SUser.models import *
 from Survey.models import *
 import SUser.utils as Utils
 
+import json
+
 def index(request):
 	rdata, op, suser = Utils.get_request_basis(request)
+	
+	if op == 'get_magic_number':
+		return HttpResponse(json.dumps({'magic_number': Utils.MAGIC_NUMBER}))
+
+	if op == 'logout':
+		auth.logout(request)
+		return HttpResponse('{}');
+
+	username = request.POST.get('username')
+	password = request.POST.get('password')
+
+	if username is not None and password is not None:
+		password = Utils.uglyDecrypt(password)
+
+		# 判断是否存在
+		susers = SUser.objects.filter(username=username)
+		existed = (len(susers) > 0)
+
+		# 判断是否是清华账号
+		if username.isdigit() and len(username) == 10:
+			pass
+
+		if not existed:
+			rdata['info'] = '用户名不存在'
+		else:
+			# 验证
+			user = auth.authenticate(username=username, password=password)
+			if user is not None:
+				auth.login(request, user)
+				rdata['login'] = True
+				rdata['suser'] = suser = SUser.objects.get(uid=request.user.id)
+				login = True
+			else:
+				rdata['info'] = '密码错误'
+	
+	else:
+		if suser is None:
+			rdata['login'] = False
+		else:
+			rdata['login'] = True
 
 	return render(request, 'index.html', rdata)
 
 def add_user(request, username):
+	rdata, op, suser = Utils.get_request_basis(request)
+	if suser is None or suser.username != 'root':
+		return render(request, 'permission_denied.html', {})
+
 	password = username
 	user = auth.authenticate(username=username, password=password)
 	admin = False
 	if username == 'root': admin = True
 	if user is None:
 		user = User.objects.create_user(username=username, password=password)
-		suser = SUser.objects.create(username=username, uid=user.id, admin=True)
+		suser = SUser.objects.create(username=username, uid=user.id, admin=admin)
 		html = 'add ' + username + ' successful'
 	else:
 		html = username + ' already exists'
@@ -30,6 +76,9 @@ def add_user(request, username):
 
 def delete_user(request, username):
 	users = User.objects.filter(username=username)
+	if suser is None or suser.username != 'root':
+		return render(request, 'permission_denied.html', {})
+
 	if len(users) > 0: users[0].delete()
 	susers = SUser.objects.filter(username=username)
 	html = 'no such user ' + username

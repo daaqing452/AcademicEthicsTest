@@ -28,6 +28,6 @@ def survey_fill(request):
 	rdata, op, suser = Utils.get_request_basis(request)
 
 	if op == 'load':
-		
+		pass
 
 	return render(request, "survey_create.html")
