@@ -28,6 +28,12 @@ def survey_fill(request):
 	rdata, op, suser = Utils.get_request_basis(request)
 
 	if op == 'load':
-		pass
+		jdata = {}
+		questions = Question.objects.all()
+		qstring = [question.question for question in questions]
+		jdata['status'] = 1
+		jdata['title'] = 'xxx'
+		jdata['qstring'] = json.dumps(qstring)
+		return HttpResponse(json.dumps(jdata))
 
-	return render(request, "survey_create.html")
+	return render(request, "survey_fill.html")
