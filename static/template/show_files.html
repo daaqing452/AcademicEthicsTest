@@ -1,0 +1,21 @@
+{% load static %}
+<head>
+	<title> 规范文件 </title>
+</head>
+
+<body>
+
+<h1>规范文件</h1>
+
+{% for file in files %}
+<a href='/media/{{ file }}'>{{ file }}</a><br/>
+{% endfor %}
+
+<link href='{% static 'bootstrap/css/bootstrap.min.css' %}' rel="stylesheet">
+<link href="{% static "kindeditor/themes/default/default.css" %}" rel="stylesheet">
+<script src='{% static 'bootstrap/js/bootstrap.min.js' %}'> </script>
+<script src='{% static 'js/jquery-3.1.1.min.js' %}'> </script>
+<script src='{% static 'js/jquery-ui.min.js' %}'> </script> 
+<script src='{% static 'js/csrf.js' %}'> </script>
+
+</body>

@@ -11,6 +11,7 @@ from Survey.models import *
 import SUser.utils as Utils
 
 import json
+import os
 
 def index(request):
 	rdata, op, suser = Utils.get_request_basis(request)
@@ -56,6 +57,15 @@ def index(request):
 			rdata['login'] = True
 
 	return render(request, 'index.html', rdata)
+
+def show_files(request):
+	rdata, op, suser = Utils.get_request_basis(request)
+	if suser is None:
+		return render(request, 'permission_denied.html', {})
+
+	rdata['files'] = files = os.listdir('media')
+
+	return render(request, 'show_files.html', rdata)
 
 def add_user(request, username):
 	rdata, op, suser = Utils.get_request_basis(request)

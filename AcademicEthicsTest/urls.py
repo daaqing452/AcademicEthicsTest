@@ -14,19 +14,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from SUser.views import *
 from Survey.views import *
+import AcademicEthicsTest.settings as settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     url(r'^$', index),
     url(r'^index/$', index),
+    url(r'^show_files/$', show_files),
     url(r'^au/([a-z0-9]{1,20})/$', add_user),
     url(r'^du/([a-z0-9]{1,20})/$', delete_user),
     
     url(r'^survey_create/$', survey_create),
     url(r'^survey_fill/$', survey_fill),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
