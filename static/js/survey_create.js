@@ -29,10 +29,8 @@ $(document).ready(function(){
             questions = JSON.parse(qstring);
             createPage();
             getindex();
-            
         }
     });
-
 });
 
 function createSurvey(s_type){
