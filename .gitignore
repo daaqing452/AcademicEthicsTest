@@ -9,7 +9,7 @@
 /SUser/__pycache__/*.pyc
 /SUser/*.pyc
 /Survey/.DS_Store
-/Survey/migrations/*.
+/Survey/migrations/*
 /Survey/__pycache__/*.pyc
 /Survey/*.pyc
 /static/.DS_Store
