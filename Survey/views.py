@@ -75,6 +75,7 @@ def survey_report(request, username=''):
 		jdata = {}
 		if len(answers) > 0:
 			jdata['qstring'] = answers[0].astring
+			jdata['score'] = answers[0].score
 		return HttpResponse(json.dumps(jdata))
 	
 	return render(request, "survey_report.html", rdata)
