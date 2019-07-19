@@ -14,6 +14,12 @@
 <span style="margin-right: 20px">测试题数：{{test_num}}</span>
 <input id="new_test_num" type='text' style="width:50px"/>
 <button onclick='change_test_num()'>修改</button>
+<br/>
+<br/>
+<span>已填问卷：</span><br/>
+{% for answer in answers %}
+<a href='/survey_report/{{answer.username}}'>{{answer.username}}</a>
+{% endfor %}
 
 <link href='{% static 'bootstrap/css/bootstrap.min.css' %}' rel="stylesheet">
 <link href="{% static "kindeditor/themes/default/default.css" %}" rel="stylesheet">

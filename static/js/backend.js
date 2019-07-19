@@ -7,7 +7,8 @@ function change_test_num() {
 			type: "POST",
 			data: {"op": "change_test_num", "new_test_num": d},
         	success: function(data) {
-        		
+        		alert('修改成功');
+        		window.location.reload();
         	}
 		});
 	} else {

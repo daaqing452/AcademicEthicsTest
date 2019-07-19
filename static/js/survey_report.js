@@ -7,6 +7,8 @@ $(document).ready(function(){
             var data = JSON.parse(data);
             
             qstring = data['qstring'];
+            score = data['score'];
+            $('span#score').text(score);
             now_time = new Date();
             load_time_format = gettimeformat(now_time);
             load_time = now_time.getTime();

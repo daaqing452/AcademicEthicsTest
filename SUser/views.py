@@ -72,6 +72,11 @@ def backend(request):
 	if suser is None or suser.admin == False:
 		return render(request, 'permission_denied.html')
 
+	if op == 'change_test_num':
+		new_test_num = int(request.POST.get('new_test_num'))
+		Question.objects.update(test_num=new_test_num)
+		return HttpResponse('{}')
+
 	rdata['test_num'] = test_num = Question.objects.all()[0].test_num
 	rdata['answers'] = answers = Answer.objects.all()
 

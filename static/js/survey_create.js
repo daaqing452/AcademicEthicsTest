@@ -480,7 +480,7 @@ function save() {
         data: {'op': 'release', 'qstring': Qstring},
         success: function(data) {
             var data = JSON.parse(data);
-            alert("添加成功！");
+            alert("保存成功！");
             window.location.reload();
         }
     });

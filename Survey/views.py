@@ -11,6 +11,7 @@ from Survey.models import *
 import SUser.utils as Utils
 
 import json
+import random
 
 @csrf_exempt
 def survey_create(request):
@@ -36,7 +37,12 @@ def survey_fill(request):
 		return render(request, 'permission_denied.html')
 
 	if op == 'load':
-		jdata = {'qstring': Question.objects.all()[0].question}
+		jdata = {}
+		question = Question.objects.all()[0]
+		arr = json.loads(question.question)
+		random.shuffle(arr)
+		arr = arr[:question.test_num]
+		jdata['qstring'] = qstring = json.dumps(arr)
 		return HttpResponse(json.dumps(jdata))
 
 	if op == 'submit':
@@ -44,6 +50,7 @@ def survey_fill(request):
 		arr = json.loads(astring)
 		score = 0
 		for question in arr:
+			print(question['right_answer'], question['filled_answer'])
 			if question['right_answer'] == question['filled_answer']:
 				score += 1
 		answer = Answer.objects.create(username=suser.username, astring=astring, score=100*score//len(astring))
