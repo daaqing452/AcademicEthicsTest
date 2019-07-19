@@ -9,6 +9,9 @@
 
 <body>
 
+{% if not_exist %}
+<h3>无此用户问卷</h3>
+{% else %}
 <div class="col-md-offset-2 col-md-8 ">
     <div class="panel panel-primary">
         <div class="panel-body">
@@ -30,8 +33,8 @@
         </div>
     </div>
 </div>
-
 <div id="qstring" style="display:none">{{ qstring }}</div>
+{% endif %}
 
 <link href='{% static 'bootstrap/css/bootstrap.min.css' %}' rel="stylesheet">
 <link href="{% static "kindeditor/themes/default/default.css" %}" rel="stylesheet">
