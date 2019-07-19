@@ -61,7 +61,7 @@ def index(request):
 def show_files(request):
 	rdata, op, suser = Utils.get_request_basis(request)
 	if suser is None:
-		return render(request, 'permission_denied.html', {})
+		return render(request, 'permission_denied.html')
 
 	rdata['files'] = files = os.listdir('media')
 
@@ -70,7 +70,7 @@ def show_files(request):
 def add_user(request, username):
 	rdata, op, suser = Utils.get_request_basis(request)
 	if suser is None or suser.username != 'root':
-		return render(request, 'permission_denied.html', {})
+		return render(request, 'permission_denied.html')
 
 	password = username
 	user = auth.authenticate(username=username, password=password)
@@ -85,10 +85,11 @@ def add_user(request, username):
 	return HttpResponse(html)
 
 def delete_user(request, username):
-	users = User.objects.filter(username=username)
+	rdata, op, suser = Utils.get_request_basis(request)
 	if suser is None or suser.username != 'root':
-		return render(request, 'permission_denied.html', {})
+		return render(request, 'permission_denied.html')
 
+	users = User.objects.filter(username=username)
 	if len(users) > 0: users[0].delete()
 	susers = SUser.objects.filter(username=username)
 	html = 'no such user ' + username
