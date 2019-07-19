@@ -12,6 +12,7 @@ import SUser.utils as Utils
 
 import json
 
+@csrf_exempt
 def survey_create(request):
 	rdata, op, suser = Utils.get_request_basis(request)
 
@@ -26,6 +27,7 @@ def survey_create(request):
 
 	return render(request, "survey_create.html")
 
+@csrf_exempt
 def survey_fill(request):
 	rdata, op, suser = Utils.get_request_basis(request)
 

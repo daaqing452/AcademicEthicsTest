@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     $.ajax({
         url: window.location.href,
@@ -16,37 +15,19 @@ $(document).ready(function(){
             if(qstring == ""){
                 return;
             }
-
-            window.setInterval(function(){ 
-                tempSave(); 
-            }, 10000); 
+            // window.setInterval(function(){ 
+            //     tempSave(); 
+            // }, 10000); 
             questions = JSON.parse(qstring);
-            answers_from_database = JSON.parse(data['astring']);
-            showPage();
+            // answers_from_database = JSON.parse(data['astring']);
+            createPage();
             getindex();
-            fillAnswer();
-            
+            page_status = "fill";
+            // fillAnswer();
         }
     });
-
 });
 
-function prefixzero(num){
-    if(Number(num) < 10){
-        return "0" + num.toString();
-    }
-    else{
-        return num.toString();
-    }
-}
 
-function gettimeformat(now_t) {
-    var year = prefixzero(now_t.getFullYear().toString());
-    var month = prefixzero((now_t.getMonth()+1).toString());
-    var day = prefixzero(now_t.getDate().toString());
-    var hour = prefixzero(now_t.getHours().toString());
-    var minute = prefixzero(now_t.getMinutes().toString());
-    var second = prefixzero(now_t.getSeconds().toString());
-    var t_format = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
-    return t_format;
-}
+
+

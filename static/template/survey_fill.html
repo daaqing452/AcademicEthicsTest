@@ -9,12 +9,30 @@
 
 <body>
 
+<div class="col-md-offset-2 col-md-8 ">
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="input-group">
+                <h1>自测题目</h1>
+            </div>
+            <hr style="height: 1px; border: none; background-color: #428bca">
+            <div style="text-align:left;width: 100%" >
+                <table id="questions"  style="table-layout:fixed;word-break:break-all;border: 0px;width: 100%" >
+                <tbody>
+                    
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 <link href='{% static 'bootstrap/css/bootstrap.min.css' %}' rel="stylesheet">
 <link href="{% static "kindeditor/themes/default/default.css" %}" rel="stylesheet">
-<script src='{% static 'bootstrap/js/bootstrap.min.js' %}'> </script>
 <script src='{% static 'js/jquery-3.1.1.min.js' %}'> </script>
 <script src='{% static 'js/jquery-ui.min.js' %}'> </script> 
-<script src='{% static 'js/survey_create.js' %}'> </script>
+<script src='{% static 'bootstrap/js/bootstrap.min.js' %}'> </script>
+<script src='{% static 'js/survey_base.js' %}'> </script>
 <script src='{% static 'js/survey_fill.js' %}'> </script>
 <script src='{% static 'js/csrf.js' %}'> </script>
 <script src="{% static "kindeditor/kindeditor-all.js" %}"></script>

@@ -15,11 +15,12 @@
                 <h1>题目录入</h1>
             </div>
             </br>
-            <div class="btn-group" name="my-btn-group">
+            <div class="btn-group" name="my-btn-group" style="width: 100%">
                 <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal"  onclick="createSurvey(1)"> 单项选择 </button>
                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" onclick="createSurvey(2)"> 多项选择 </button>
+                <button type="button" class="btn btn-primary btn-sm"  onclick="window.location.href='/index'" style="float: right;"> 返回首页 </button>
             </div>
-            <br/>
+            <hr style="height: 1px; border: none; background-color: #428bca">
             <div style="text-align:left;width: 100%" >
                 <table id="questions"  style="table-layout:fixed;word-break:break-all;border: 0px;width: 100%" >
                 <tbody>
@@ -28,7 +29,7 @@
                 </table>
             </div>
             <!--<button id="save_btn" class="btn btn-success " onclick="save()" style="float:right"> 暂存 </button>-->
-            <button id="release_btn" class="btn btn-success " onclick="release()" style="float:right"> 保存 </button>
+            <button id="release_btn" class="btn btn-success " onclick="save()" style="float:right"> 保存 </button>
         </div>
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
@@ -73,6 +74,7 @@
 <script src='{% static 'js/jquery-3.1.1.min.js' %}'> </script>
 <script src='{% static 'js/jquery-ui.min.js' %}'> </script> 
 <script src='{% static 'bootstrap/js/bootstrap.min.js' %}'> </script>
+<script src='{% static 'js/survey_base.js' %}'> </script>
 <script src='{% static 'js/survey_create.js' %}'> </script>
 <script src="{% static "kindeditor/kindeditor-all.js" %}"></script>
 <script src="{% static "kindeditor/lang/zh-CN.js" %}"></script>
