@@ -21,9 +21,10 @@ $(document).ready(function(){
             // }, 10000); 
             questions = JSON.parse(qstring);
             // answers_from_database = JSON.parse(data['astring']);
+            page_status = "report";
             createPage();
             getindex();
-            page_status = "report";
+            
             showresults();
             // fillAnswer();
         }

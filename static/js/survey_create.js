@@ -19,10 +19,11 @@ $(document).ready(function(){
                 return;
             }
             questions = JSON.parse(qstring);
+            page_status = "create";
             createPage();
             getindex();
             fillanswer();
-            page_status = "create";
+            
         }
     });
 });

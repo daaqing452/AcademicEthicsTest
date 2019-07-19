@@ -33,7 +33,7 @@ function gettimeformat(now_t) {
 function createPage(){
     for(var i = 0; i < questions.length; i++){
         var new_row = q_table.insertRow(-1);
-        new_row.innerHTML = createHtml(questions[i]);
+        new_row.innerHTML = createHtml(questions[i],i);
     }
 
 }
@@ -45,10 +45,15 @@ function getindex(){
     operate_index = current_status.index;
 }
 
-function createHtml(q,flag = 0){
+function createHtml(q,random_index = 0){
     var HTMLContent = "<td>";
     var index = q.index;
-    HTMLContent += "<div><font size=\"3\">"+(index + 1).toString() + "." + q.title_html+"</font>";
+    if(page_status == "create"){
+        HTMLContent += "<div><font size=\"3\">"+(index + 1).toString() + "." + q.title_html+"</font>";
+    }
+    if(page_status == "fill"){
+        HTMLContent += "<div><font size=\"3\">"+(random_index + 1).toString() + "." + q.title_html+"</font>";
+    }
     switch(q.s_type){
         case 1:{
             HTMLContent += "</div>";
@@ -80,57 +85,10 @@ function createHtml(q,flag = 0){
         }
     }
     if(page_status == "create"){
-        HTMLContent += "<br><div><button class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#myModal2\" onclick=\"addQAfter(this)\">插入</button><button class=\"btn btn-danger btn-sm\" onclick=\"deleteQ(this)\">删除</button><button data-toggle=\"modal\" data-target=\"#myModal\" class=\"btn btn-warning btn-sm\" onclick=\"modifyQ(this)\">修改</button>";
-        HTMLContent += "<button class=\"btn btn-success btn-sm\" onclick=\"moveQup(this)\">上移</button><button class=\"btn btn-success btn-sm\" onclick=\"moveQdown(this)\">下移</button><button class=\"btn btn-success btn-sm\" onclick=\"copyQ(this)\">复制</button></div><hr>";
+    	HTMLContent += "<br><div><button class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#myModal2\" onclick=\"addQAfter(this)\">插入</button><button class=\"btn btn-danger btn-sm\" onclick=\"deleteQ(this)\">删除</button><button data-toggle=\"modal\" data-target=\"#myModal\" class=\"btn btn-warning btn-sm\" onclick=\"modifyQ(this)\">修改</button>";
+    	HTMLContent += "<button class=\"btn btn-success btn-sm\" onclick=\"moveQup(this)\">上移</button><button class=\"btn btn-success btn-sm\" onclick=\"moveQdown(this)\">下移</button><button class=\"btn btn-success btn-sm\" onclick=\"copyQ(this)\">复制</button></div><hr>";
     }
     HTMLContent += "</td>";
     return HTMLContent;
 }
 
-function check_filled() {
-    var $f = $("form");
-    var wrong_info = "";
-    for(var i = 0; i < questions.length; i++){
-        var $r = $f.eq(i).find('input[name="single"]');
-        questions[i].right_answer = [];
-        for(var j = 0; j < $r.length; j++){
-            if($r.eq(j).prop("checked") == true){
-                questions[i].right_answer.push(j);
-            }
-        }
-        if(questions[i].right_answer.length == 0){
-            if(page_status == "create"){
-                wrong_info += "第"+(i+1)+"题没有填写正确答案\n";
-            }
-            if(page_status == "fill"){
-                wrong_info += "第"+(i+1)+"题没有填写\n";
-            }
-        }
-    }
-    return wrong_info;
-}
-
-function save() {
-    var wrong_info = check_filled();
-    if(wrong_info != ""){
-        alert(wrong_info);
-        return;
-    }
-    var Qstring = JSON.stringify(questions);
-    $.ajax({
-        url: window.location.pathname,
-        type: 'POST',
-        data: {'op': 'release', 'qstring': Qstring},
-        success: function(data) {
-            var data = JSON.parse(data);
-            if(page_status == "create"){
-                alert("添加成功！");;
-            }
-            if(page_status == "fill"){
-                alert("提交成功！");;
-            }
-            
-            window.location.reload();
-        }
-    });
-}
