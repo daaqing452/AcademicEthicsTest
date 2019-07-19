@@ -42,18 +42,34 @@ def survey_fill(request):
 		arr = json.loads(question.question)
 		random.shuffle(arr)
 		arr = arr[:question.test_num]
+		for i in range(len(arr)):
+			ra = arr[i]['right_answer']
+			for j in range(len(ra)):
+				ra[j] = ra[j] ^ (i+1)
+			arr[i]['right_answer'] = ra
 		jdata['qstring'] = qstring = json.dumps(arr)
 		return HttpResponse(json.dumps(jdata))
 
 	if op == 'submit':
-		astring = request.POST.get('qstring')
-		arr = json.loads(astring)
+		arr = json.loads(request.POST.get('qstring'))
 		score = 0
-		for question in arr:
-			print(question['right_answer'], question['filled_answer'])
-			if question['right_answer'] == question['filled_answer']:
+		for i in range(len(arr)):
+			ra = arr[i]['right_answer']
+			fa = arr[i]['filled_answer']
+			for j in range(len(ra)):
+				ra[j] = ra[j] ^ (i+1)
+			arr[i]['right_answer'] = ra
+			flag = True
+			if len(ra) != len(fa):
+				flag = False
+			else:
+				for j in range(len(ra)):
+					if ra[j] != fa[j]:
+						flag = False
+			if flag:
 				score += 1
-		answer = Answer.objects.create(username=suser.username, astring=astring, score=100*score//len(astring))
+		astring = json.dumps(arr)
+		answer = Answer.objects.create(username=suser.username, astring=astring, score=100*score//len(arr))
 		return HttpResponse('{}')
 
 	answers = Answer.objects.filter(username=suser.username)

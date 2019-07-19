@@ -16,9 +16,9 @@
 <button onclick='change_test_num()'>修改</button>
 <br/>
 <br/>
-<span>已填问卷：</span><br/>
+<span>已填问卷 ({{n_answers}})：</span><br/>
 {% for answer in answers %}
-<a href='/survey_report/{{answer.username}}'>{{answer.username}}</a>
+<a href='/survey_report/{{answer.username}}'>{{answer.username}}</a><br/>
 {% endfor %}
 
 <link href='{% static 'bootstrap/css/bootstrap.min.css' %}' rel="stylesheet">

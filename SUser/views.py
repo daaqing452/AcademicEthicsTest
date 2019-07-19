@@ -79,6 +79,7 @@ def backend(request):
 
 	rdata['test_num'] = test_num = Question.objects.all()[0].test_num
 	rdata['answers'] = answers = Answer.objects.all()
+	rdata['n_answers'] = len(answers)
 
 	return render(request, 'backend.html', rdata)
 
