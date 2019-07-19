@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^$', index),
     url(r'^index/$', index),
     url(r'^show_files/$', show_files),
+    url(r'^backend/$', backend),
     url(r'^au/([a-z0-9]{1,20})/$', add_user),
     url(r'^du/([a-z0-9]{1,20})/$', delete_user),
     

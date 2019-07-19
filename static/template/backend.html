@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 管理员后台 </title>
+    
+</head>
+
+<body>
+
+<h3>管理员后台</h3>
+<br/>
+<span style="margin-right: 20px">测试题数：{{test_num}}</span>
+<input id="new_test_num" type='text' style="width:50px"/>
+<button onclick='change_test_num()'>修改</button>
+
+<link href='{% static 'bootstrap/css/bootstrap.min.css' %}' rel="stylesheet">
+<link href="{% static "kindeditor/themes/default/default.css" %}" rel="stylesheet">
+<script src='{% static 'js/jquery-3.1.1.min.js' %}'> </script>
+<script src='{% static 'js/jquery-ui.min.js' %}'> </script> 
+<script src='{% static 'bootstrap/js/bootstrap.min.js' %}'> </script>
+<script src='{% static 'js/backend.js' %}'> </script>
+<script src='{% static 'js/csrf.js' %}'> </script>
+
+</body>
+</html>

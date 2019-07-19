@@ -67,6 +67,16 @@ def show_files(request):
 
 	return render(request, 'show_files.html', rdata)
 
+def backend(request):
+	rdata, op, suser = Utils.get_request_basis(request)
+	if suser is None or suser.admin == False:
+		return render(request, 'permission_denied.html')
+
+	rdata['test_num'] = test_num = Question.objects.all()[0].test_num
+	rdata['answers'] = answers = Answer.objects.all()
+
+	return render(request, 'backend.html', rdata)
+
 def add_user(request, username):
 	rdata, op, suser = Utils.get_request_basis(request)
 	if suser is None or suser.username != 'root':

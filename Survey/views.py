@@ -64,7 +64,7 @@ def survey_report(request, username):
 
 	answers = Answer.objects.filter(username=username)
 	if len(answers) > 0:
-		rdata['qstring'] = answers[0].astring
+		rdata['qstring'] = username
 	else:
 		rdata['not_exist'] = True
 	
