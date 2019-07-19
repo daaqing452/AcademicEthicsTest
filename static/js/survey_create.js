@@ -454,7 +454,7 @@ function check_filled() {
     var wrong_info = "";
     for(var i = 0; i < questions.length; i++){
         var $r = $f.eq(i).find('input[name="single"]');
-        questions[i].right_answer = []
+        questions[i].right_answer = [];
         for(var j = 0; j < $r.length; j++){
             if($r.eq(j).prop("checked") == true){
                 questions[i].right_answer.push(j);

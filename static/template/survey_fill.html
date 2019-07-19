@@ -15,6 +15,9 @@
             <div class="input-group">
                 <h1>自测题目</h1>
             </div>
+            <div class="btn-group" name="my-btn-group" style="width: 100%">
+            <button type="button" class="btn btn-primary btn-sm"  onclick="window.location.href='/index'" style="float: right;"> 返回首页 </button>
+            </div>
             <hr style="height: 1px; border: none; background-color: #428bca">
             <div style="text-align:left;width: 100%" >
                 <table id="questions"  style="table-layout:fixed;word-break:break-all;border: 0px;width: 100%" >
@@ -23,6 +26,7 @@
                 </tbody>
                 </table>
             </div>
+            <button id="release_btn" class="btn btn-success " onclick="submit()" style="float:right"> 提交 </button>
         </div>
     </div>
 </div>
