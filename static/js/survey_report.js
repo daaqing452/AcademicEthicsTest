@@ -22,8 +22,29 @@ $(document).ready(function(){
             createPage();
             getindex();
             page_status = "report";
+            showresults();
             // fillAnswer();
         }
     });
 });
 
+function genMessage(q){
+    var message = "你选择了选项";
+    for(var i = 0; i < q.filled_answer.length; i++){
+        message += String.fromCharCode(65 + q.filled_answer[i]);
+    }
+    message += ", 正确答案为";
+    for(var i = 0; i < q.right_answer.length; i++){
+        message += String.fromCharCode(65 + q.right_answer[i]);
+    }
+    return message;
+}
+
+function showresults(){
+    var $f = $("form");
+    for(var i = 0; i < questions.length; i++){
+        $div = $f.eq(i).parent();
+        var message = genMessage(questions[i]);
+        $div.append(message + "<hr>");
+    }
+}
