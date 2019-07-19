@@ -51,7 +51,7 @@ function createHtml(q,random_index = 0){
     if(page_status == "create"){
         HTMLContent += "<div><font size=\"3\">"+(index + 1).toString() + "." + q.title_html+"</font>";
     }
-    if(page_status == "fill"){
+    else{
         HTMLContent += "<div><font size=\"3\">"+(random_index + 1).toString() + "." + q.title_html+"</font>";
     }
     switch(q.s_type){
@@ -61,7 +61,12 @@ function createHtml(q,random_index = 0){
             for(var i = 0; i < q.n_option; i ++)
             {
                 var option = q.options[i];
-                HTMLContent += "<p class=\"q_item\"><input type=\"radio\" name=\"single\" > "+option.index+". ";
+                if(page_status == "report"){
+                    HTMLContent += "<p class=\"q_item\"> "+option.index+". ";
+                }
+                else{
+                    HTMLContent += "<p class=\"q_item\"><input type=\"radio\" name=\"single\" > "+option.index+". ";
+                }
                 HTMLContent += option.text;
                 HTMLContent += "</p>";
                 
@@ -75,7 +80,12 @@ function createHtml(q,random_index = 0){
             for(var i = 0; i < q.n_option; i ++)
             {
                 var option = q.options[i];
-                HTMLContent += "<p class=\"q_item\"><input type=\"checkbox\" name=\"single\"> "+option.index+". ";
+                if(page_status == "report"){
+                    HTMLContent += "<p class=\"q_item\"> "+option.index+". ";
+                }
+                else{
+                    HTMLContent += "<p class=\"q_item\"><input type=\"checkbox\" name=\"single\"> "+option.index+". ";
+                }
                 HTMLContent += option.text;
                 HTMLContent += "</p>";
                 
