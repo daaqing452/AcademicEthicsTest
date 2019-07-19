@@ -57,13 +57,15 @@ def survey_fill(request):
 
 @csrf_exempt
 def survey_report(request, username):
+	print(username)
 	rdata, op, suser = Utils.get_request_basis(request)
-	if suser is None or (suser.admin == False and username != suser.username):
+	if suser is None or suser.admin == False:
 		return render(request, 'permission_denied.html')
 
-	answers = Answer.objects.filter(username=suser.username)
+	answers = Answer.objects.filter(username=username)
 	if len(answers) > 0:
 		rdata['qstring'] = answers[0].astring
-		return render(request, "survey_report.html", rdata)
 	else:
-		return render(request, "survey_fill.html", rdata)
+		rdata['not_exist'] = True
+	
+	return render(request, "survey_report.html", rdata)
