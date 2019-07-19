@@ -45,22 +45,25 @@ def survey_fill(request):
 		for question in astring:
 			if question['right_answer'] == question['filled_answer']:
 				score += 1
-		answer = Answer.objects.create(uid=suser.id, astring=astring, score=100*score//len(astring))
+		answer = Answer.objects.create(username=suser.username, astring=astring, score=100*score//len(astring))
 		return HttpResponse('{}')
 
-	answers = Answer.objects.filter(uid=suser.id)
+	answers = Answer.objects.filter(username=suser.username)
 	if len(answers) > 0:
+		rdata['qstring'] = answers[0].astring
 		return render(request, "survey_report.html", rdata)
 	else:
 		return render(request, "survey_fill.html", rdata)
 
-def surcey_report(request):
+@csrf_exempt
+def survey_report(request, username):
 	rdata, op, suser = Utils.get_request_basis(request)
-	if suser is None:
+	if suser is None or (suser.admin == False and username != suser.username):
 		return render(request, 'permission_denied.html')
 
-	answers = Answer.objects.filter(uid=suser.id)
+	answers = Answer.objects.filter(username=suser.username)
 	if len(answers) > 0:
+		rdata['qstring'] = answers[0].astring
 		return render(request, "survey_report.html", rdata)
 	else:
 		return render(request, "survey_fill.html", rdata)
