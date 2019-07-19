@@ -40,9 +40,10 @@ def survey_fill(request):
 		return HttpResponse(json.dumps(jdata))
 
 	if op == 'submit':
-		astring = json.loads(request.POST.get('qstring'))
+		astring = request.POST.get('qstring')
+		arr = json.loads(qstring)
 		score = 0
-		for question in astring:
+		for question in arr:
 			if question['right_answer'] == question['filled_answer']:
 				score += 1
 		answer = Answer.objects.create(username=suser.username, astring=astring, score=100*score//len(astring))
