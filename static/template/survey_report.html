@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 问卷页面 </title>
+    
+</head>
+
+<body>
+
+<div class="col-md-offset-2 col-md-8 ">
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="input-group">
+                <h1>自测题目结果</h1>
+            </div>
+            <div class="btn-group" name="my-btn-group" style="width: 100%">
+            <button type="button" class="btn btn-primary btn-sm"  onclick="window.location.href='/index'" style="float: right;"> 返回首页 </button>
+            </div>
+            <hr style="height: 1px; border: none; background-color: #428bca">
+            <div style="text-align:left;width: 100%" >
+                <table id="questions"  style="table-layout:fixed;word-break:break-all;border: 0px;width: 100%" >
+                <tbody>
+                    
+                </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<link href='{% static 'bootstrap/css/bootstrap.min.css' %}' rel="stylesheet">
+<link href="{% static "kindeditor/themes/default/default.css" %}" rel="stylesheet">
+<script src='{% static 'js/jquery-3.1.1.min.js' %}'> </script>
+<script src='{% static 'js/jquery-ui.min.js' %}'> </script> 
+<script src='{% static 'bootstrap/js/bootstrap.min.js' %}'> </script>
+<script src='{% static 'js/survey_base.js' %}'> </script>
+<script src='{% static 'js/survey_fill.js' %}'> </script>
+<script src='{% static 'js/csrf.js' %}'> </script>
+<script src="{% static "kindeditor/kindeditor-all.js" %}"></script>
+<script src="{% static "kindeditor/lang/zh-CN.js" %}"></script>
+
+</body>
+</html>
