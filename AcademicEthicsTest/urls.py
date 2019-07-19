@@ -33,6 +33,7 @@ urlpatterns = [
     
     url(r'^survey_create/$', survey_create),
     url(r'^survey_fill/$', survey_fill),
+    url(r'^survey_report/$', survey_report),
     url(r'^survey_report/([a-z0-9]{1,20})/$', survey_report),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
