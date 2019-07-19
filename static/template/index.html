@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 {% load static %}
 <head>
-	<title> 首页 </title>
+    <title> 首页 </title>
 </head>
 
 <body>
+<div class="col-md-offset-4 col-md-4 ">
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div style="text-align: center;">
+                <h1>学术自测</h1>
+            </div>
+            
+            {% if login %}
+                <h4><span class="glyphicon glyphicon-user"></span>{{ suser.username }}</h4>
+                <hr style="height: 1px; border: none; background-color: #428bca">
+                <button class="btn btn-primary btn-sm" onclick="window.location.href='/survey_fill/'" style="width: 100%">进入自测</button><br/>
+                {% if suser.admin %}
+                <button class="btn btn-primary btn-sm" onclick="window.location.href='/survey_create/'" style="width: 100%">添加题目</button><br/>
+                <button class="btn btn-primary btn-sm" onclick="window.location.href='/backend/'" style="width: 100%">后台管理</button><br/>
+                {% endif %}
+                <button class="btn btn-primary btn-sm" onclick="window.location.href='/show_files/'" style="width: 100%">规范文件</button><br/>
+                <button class="btn btn-primary btn-sm" onclick='logout()' style="width: 100%">登出</button><br/>
+            {% else %}
+                <hr style="height: 1px; border: none; background-color: #428bca">
+                <form method='post' enctype='multipart/form-data' style="margin:10px 10px 10px 10px;">
+                    {% csrf_token %}
+                    <input id='username' type='text' name='username' class="form-control" placeholder="学号"/>
+                    <br />
+                    <input id='password' type='password' name='password' class="form-control" placeholder="密码"/>
+                    <br />
+                    <input type="submit" class="btn btn-primary btn-lg btn-block" onclick="return checkAndSubmit();" value="登录" />
+                </form>
+                <span>{{ info }}</span>
+            {% endif %}
+        </div>
+    </div>
+</div>
 
-<h1>xxxx自测</h1>
-{% if login %}
-	<span class="glyphicon glyphicon-user"></span>{{ suser.username }}<br/>
-	<button><a href='/survey_fill/'>进入自测</a></button><br/>
-	{% if suser.admin %}
-		<button><a href='/survey_create/'>添加题目</a></button><br/>
-		<button><a href='/backend/'>后台管理</a></button><br/>
-	{% endif %}
-	<button><a href='/show_files/'>规范文件</a></button><br/>
-	<button onclick='logout()'>登出</button><br/>
-{% else %}
-	<form method='post' enctype='multipart/form-data' style="margin:10px 10px 10px 10px;">
-		{% csrf_token %}
-		<input id='username' type='text' name='username' class="form-control" placeholder="学号"/>
-		<br />
-		<input id='password' type='password' name='password' class="form-control" placeholder="密码"/>
-		<br />
-		<input type="submit" class="btn btn-primary btn-lg btn-block" onclick="return checkAndSubmit();" value="登录" />
-	</form>
-	<span>{{ info }}</span>
-{% endif %}
+
 
 <link href='{% static 'bootstrap/css/bootstrap.min.css' %}' rel="stylesheet">
 <link href="{% static "kindeditor/themes/default/default.css" %}" rel="stylesheet">

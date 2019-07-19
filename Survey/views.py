@@ -41,7 +41,7 @@ def survey_fill(request):
 
 	if op == 'submit':
 		astring = request.POST.get('qstring')
-		arr = json.loads(qstring)
+		arr = json.loads(astring)
 		score = 0
 		for question in arr:
 			if question['right_answer'] == question['filled_answer']:
