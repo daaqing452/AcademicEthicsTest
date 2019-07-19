@@ -56,7 +56,7 @@ function submit(){
     $.ajax({
         url: window.location.pathname,
         type: 'POST',
-        data: {'op': 'release', 'qstring': Qstring},
+        data: {'op': 'submit', 'qstring': Qstring},
         success: function(data) {
             var data = JSON.parse(data);
             alert("提交成功！");
