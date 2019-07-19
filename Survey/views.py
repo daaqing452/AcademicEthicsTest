@@ -48,8 +48,17 @@ def survey_fill(request):
 
 	answers = Answer.objects.filter(uid=suser.id)
 	if len(answers) > 0:
-		rdata['status'] = 0
+		return render(request, "survey_report.html", rdata)
 	else:
-		rdata['status'] = 1
-	
-	return render(request, "survey_fill.html", rdata)
+		return render(request, "survey_fill.html", rdata)
+
+def surcey_report(request):
+	rdata, op, suser = Utils.get_request_basis(request)
+	if suser is None:
+		return render(request, 'permission_denied.html')
+
+	answers = Answer.objects.filter(uid=suser.id)
+	if len(answers) > 0:
+		return render(request, "survey_report.html", rdata)
+	else:
+		return render(request, "survey_fill.html", rdata)
