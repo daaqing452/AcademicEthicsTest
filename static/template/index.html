@@ -5,39 +5,44 @@
 </head>
 
 <body>
+<div class="row">
 <div class="col-md-offset-4 col-md-4 ">
-    <div class="panel panel-primary">
+    <div class="panel" style="margin: 100px 0px 0px 0px; border-color: #BB8FCE; border-width: 2px">
         <div class="panel-body">
             <div style="text-align: center;">
                 <h1>学术自测</h1>
             </div>
             
             {% if login %}
-                <h4><span class="glyphicon glyphicon-user"></span>{{ suser.username }}</h4>
-                <hr style="height: 1px; border: none; background-color: #428bca">
-                <button class="btn btn-primary btn-sm" onclick="window.location.href='/survey_fill/'" style="width: 100%">进入自测</button><br/>
+                <h4><span class="glyphicon glyphicon-user"></span> &nbsp; {{ suser.username }}</h4>
+                <hr style="height: 1px; border: none; background-color: #BB8FCE">
+                <button class="btn btn-lg" onclick="window.location.href='/survey_fill/'" style="width: 100%; background-color: #BB8FCE; color: white;">进入自测</button><br/>
+                <br/>
                 {% if suser.admin %}
-                <button class="btn btn-primary btn-sm" onclick="window.location.href='/survey_create/'" style="width: 100%">添加题目</button><br/>
-                <button class="btn btn-primary btn-sm" onclick="window.location.href='/backend/'" style="width: 100%">后台管理</button><br/>
+                <button class="btn btn-lg" onclick="window.location.href='/survey_create/'" style="width: 100%; background-color: #BB8FCE; color: white;">添加题目</button><br/>
+                <br/>
+                <button class="btn btn-lg" onclick="window.location.href='/backend/'" style="width: 100%; background-color: #BB8FCE; color: white;">后台管理</button><br/>
+                <br/>
                 {% endif %}
-                <button class="btn btn-primary btn-sm" onclick="window.location.href='/show_files/'" style="width: 100%">规范文件</button><br/>
-                <button class="btn btn-primary btn-sm" onclick='logout()' style="width: 100%">登出</button><br/>
+                <button class="btn btn-lg" onclick="window.location.href='/show_files/'" style="width: 100%; background-color: #BB8FCE; color: white;">规范文件</button><br/>
+                <br/>
+                <button class="btn btn-lg" onclick='logout()' style="width: 100%; background-color: #BB8FCE; color: white;">登出系统</button>
             {% else %}
-                <hr style="height: 1px; border: none; background-color: #428bca">
+                <hr style="height: 1px; border: none; background-color: #802ED3">
                 <form method='post' enctype='multipart/form-data' style="margin:10px 10px 10px 10px;">
                     {% csrf_token %}
                     <input id='username' type='text' name='username' class="form-control" placeholder="学号"/>
                     <br />
                     <input id='password' type='password' name='password' class="form-control" placeholder="密码"/>
                     <br />
-                    <input type="submit" class="btn btn-primary btn-lg btn-block" onclick="return checkAndSubmit();" value="登录" />
+                    <input type="submit" class="btn btn-lg btn-block" onclick="return checkAndSubmit();" value="登录" style="background-color: #BB8FCE; color: white" />
                 </form>
                 <span>{{ info }}</span>
             {% endif %}
         </div>
     </div>
 </div>
-
+</div>
 
 
 <link href='{% static 'bootstrap/css/bootstrap.min.css' %}' rel="stylesheet">

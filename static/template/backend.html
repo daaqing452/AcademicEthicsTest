@@ -8,18 +8,31 @@
 </head>
 
 <body>
-
-<h3>管理员后台</h3>
-<br/>
-<span style="margin-right: 20px">测试题数：{{test_num}}</span>
-<input id="new_test_num" type='text' style="width:50px"/>
-<button onclick='change_test_num()'>修改</button>
+<div class="row">
+<div class="col-md-offset-4 col-md-4 ">
+    <div class="panel" style="margin: 100px 0px 0px 0px; border-color: #BB8FCE; border-width: 2px">
+        <div class="panel-body">
+		<div style="text-align: center;">
+                <h1>管理员后台</h1>
+        </div>
+        
+        <div class="btn-group" name="my-btn-group" style="width: 100%">
+        <button type="button" class="btn  btn-sm"  onclick="window.location.href='/index'" style="float: right;background-color: #BB8FCE; color: white;"> 返回首页 </button>
+        </div>
+<hr style="height: 1px; border: none; background-color: #BB8FCE">
+<span style="margin: 0px 20px 0px 100px;">测试题数：{{test_num}}</span>
+<input id="new_test_num" type='text' style="width:50px; "/>
+<button class="btn btn-sm" onclick='change_test_num()' style="background-color: #BB8FCE; color: white; ">修改</button>
 <br/>
 <br/>
 <span>已填问卷 ({{n_answers}})：</span><br/>
 {% for answer in answers %}
 <a href='/survey_report/{{answer.username}}'>{{answer.username}}</a><br/>
 {% endfor %}
+	</div>
+</div>
+</div>
+
 
 <link href='{% static 'bootstrap/css/bootstrap.min.css' %}' rel="stylesheet">
 <link href="{% static "kindeditor/themes/default/default.css" %}" rel="stylesheet">
