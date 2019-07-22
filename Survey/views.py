@@ -10,6 +10,7 @@ from SUser.models import *
 from Survey.models import *
 import SUser.utils as Utils
 
+import datetime
 import json
 import random
 
@@ -69,7 +70,7 @@ def survey_fill(request):
 			if flag:
 				score += 1
 		astring = json.dumps(arr)
-		answer = Answer.objects.create(username=suser.username, astring=astring, score=100*score//len(arr))
+		answer = Answer.objects.create(username=suser.username, astring=astring, score=100*score//len(arr), create_time=datetime.datetime.now())
 		return HttpResponse('{}')
 
 	answers = Answer.objects.filter(username=suser.username)

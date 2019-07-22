@@ -1,5 +1,6 @@
 .DS_Store
 /文档/*
+/media/*.*
 /AcademicEthicsTest/*.pyc
 /AcademicEthicsTest/__pycache__/*.pyc
 # /AcademicEthicsTest/settings.py
