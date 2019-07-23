@@ -25,7 +25,11 @@
 <button class="btn btn-sm" onclick='change_test_num()' style="background-color: #BB8FCE; color: white; ">修改</button>
 <br/>
 <br/>
-<span>已填问卷 ({{n_answers}})：</span><br/>
+<br/>
+<span>已填问卷 ({{n_answers}})：</span>
+<button class="btn btn-sm" onclick='download_submitted()' style="background-color: #BB8FCE; color: white; float:right;">导出</button>
+<a id='download'> </a>
+<br/>
 {% for answer in answers %}
 <a href='/survey_report/{{answer.username}}'>{{answer.username}}</a><br/>
 {% endfor %}

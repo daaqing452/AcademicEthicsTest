@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.db.models import Q 
@@ -12,6 +13,7 @@ import SUser.utils as Utils
 
 import json
 import os
+import time
 
 def index(request):
 	rdata, op, suser = Utils.get_request_basis(request)
@@ -72,14 +74,23 @@ def backend(request):
 	if suser is None or suser.admin == False:
 		return render(request, 'permission_denied.html')
 
+	rdata['test_num'] = test_num = Question.objects.all()[0].test_num
+	rdata['answers'] = answers = Answer.objects.all()
+	rdata['n_answers'] = len(answers)
+
 	if op == 'change_test_num':
 		new_test_num = int(request.POST.get('new_test_num'))
 		Question.objects.update(test_num=new_test_num)
 		return HttpResponse('{}')
 
-	rdata['test_num'] = test_num = Question.objects.all()[0].test_num
-	rdata['answers'] = answers = Answer.objects.all()
-	rdata['n_answers'] = len(answers)
+	if op == 'download_submitted':
+		filename = 'media/' + time.strftime('%Y%m%d%H%M%S') + '-填写用户名单.csv'
+		f = open(filename, 'w', encoding='gbk')
+		f.write('学号,姓名,院系,得分,填写时间\n')
+		for answer in answers:
+			f.write(answer.username + ',,,' + str(answer.score) + ',' + str(answer.create_time) + '\n')
+		f.close()
+		return HttpResponse(json.dumps({'export_path': filename}))
 
 	return render(request, 'backend.html', rdata)
 
