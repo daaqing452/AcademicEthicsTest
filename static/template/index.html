@@ -16,7 +16,9 @@
             {% if login %}
                 <h4><span class="glyphicon glyphicon-user"></span> &nbsp; {{ suser.username }}</h4>
                 <hr style="height: 1px; border: none; background-color: #BB8FCE">
-                <button class="btn btn-lg" onclick="window.location.href='/survey_fill/'" style="width: 100%; background-color: #BB8FCE; color: white;">进入自测</button><br/>
+                <button class="btn btn-lg" onclick="window.location.href='/survey_fill/'" style="width: 100%; background-color: #BB8FCE; color: white;">学术道德规范自测</button><br/>
+                <br/>
+                <button class="btn btn-lg" onclick="window.location.href='/show_files/'" style="width: 100%; background-color: #BB8FCE; color: white;">学术道德规范自学</button><br/>
                 <br/>
                 {% if suser.admin %}
                 <button class="btn btn-lg" onclick="window.location.href='/survey_create/'" style="width: 100%; background-color: #BB8FCE; color: white;">添加题目</button><br/>
@@ -24,8 +26,6 @@
                 <button class="btn btn-lg" onclick="window.location.href='/backend/'" style="width: 100%; background-color: #BB8FCE; color: white;">后台管理</button><br/>
                 <br/>
                 {% endif %}
-                <button class="btn btn-lg" onclick="window.location.href='/show_files/'" style="width: 100%; background-color: #BB8FCE; color: white;">规范文件</button><br/>
-                <br/>
                 <button class="btn btn-lg" onclick='logout()' style="width: 100%; background-color: #BB8FCE; color: white;">登出系统</button>
             {% else %}
                 <hr style="height: 1px; border: none; background-color: #802ED3">

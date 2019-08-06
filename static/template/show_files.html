@@ -1,13 +1,13 @@
 {% load static %}
 <head>
-	<title> 规范文件 </title>
+	<title> 学术道德规范自学 </title>
 </head>
 
 <body>
 <div class="row">
 	<div class="col-md-offset-3 col-md-6 ">
 		<div style="text-align: center;">
-            <h1>规范文件</h1>
+            <h1>学术道德规范自学</h1>
         </div>
 		<div class="btn-group" name="my-btn-group" style="width: 100%">
         <button type="button" class="btn  btn-sm"  onclick="window.location.href='/index'" style="float: right;background-color: #BB8FCE; color: white;"> 返回首页 </button>
@@ -15,9 +15,13 @@
 		<hr style="height: 1px; border: none; background-color: #BB8FCE">
 
 
+<h3>相关文件</h3>
 {% for file in files %}
 <a href='/media/{{ file }}'>{{ file }}</a><br/>
 {% endfor %}
+
+<hr style="height: 1px; border: none; background-color: #BB8FCE">
+<h3>视频</h3>
 <a href='http://www.xuetangx.com/courses/course-v1:BNU+2017053101X+2019_T1/about'>北师大印波老师《科研伦理与学术规范》</a><br/>
 <a href='http://www.xuetangx.com/courses/course-v1:TsinghuaX+10690012+2019_T1/about'>清华《学术之道》</a><br/>
 <a href='http://www.xuetangx.com/courses/course-v1:TsinghuaX+Thu02016001+2016_T1/about'>清华《研究生学术与职业素养讲座》</a><br/>

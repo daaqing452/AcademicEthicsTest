@@ -101,5 +101,10 @@ def survey_report(request, username=''):
 			jdata['qstring'] = answers[0].astring
 			jdata['score'] = answers[0].score
 		return HttpResponse(json.dumps(jdata))
+
+	if op == 'retest':
+		if len(answers) > 0:
+			answers[0].delete()
+		return HttpResponse(json.dumps({})) 
 	
 	return render(request, "survey_report.html", rdata)

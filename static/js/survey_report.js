@@ -51,3 +51,14 @@ function showresults(){
         $div.append(message + "<hr>");
     }
 }
+
+function retest() {
+    $.ajax({
+        url: window.location.href,
+        type: 'POST',
+        data: {'op': 'retest'},
+        success: function(data) {
+            window.location.href = '/survey_fill/';
+        }
+    });
+}
