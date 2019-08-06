@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-c-nb-*0w@%vr@iqp&dg3+m9_k6m5!t2e3$5exhoht3i^mh@z5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,6 +81,7 @@ DATABASES = {
         'NAME': 'AcademicDatabase',
         'USER': 'root',
         'PASSWORD': 'SurveyDatabase',
+        # 'PASSWORD': 'Real#Shit3',
         'HOST': '127.0.0.1',
         'OPTIONS': {'charset': 'utf8mb4'},
     }
@@ -123,10 +124,12 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    # os.path.join(BASE_DIR, "static"),
     '/var/www/static/',
 ]
 

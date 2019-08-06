@@ -17,6 +17,8 @@ from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
+from django.views import static
+
 from SUser.views import *
 from Survey.views import *
 import AcademicEthicsTest.settings as settings
@@ -36,4 +38,9 @@ urlpatterns = [
     url(r'^survey_report/$', survey_report),
     url(r'^survey_report/([a-z0-9]{1,20})/$', survey_report),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^media/(?P<path>.*)$', static.serve, {'document_root': settings.MEDIA_ROOT}, name='media'),
+
+] # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG == False:
+    urlpatterns += [ url(r'^static/(?P<path>.*)$', static.serve, {'document_root': settings.STATIC_ROOT}, name='static'), ]
