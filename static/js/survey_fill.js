@@ -27,6 +27,12 @@ $(document).ready(function(){
             // fillAnswer();
         }
     });
+
+    if (localStorage.getItem('printed')) {
+        //
+    } else {
+        $("#release_btn").attr('disabled', 'disabled');
+    }
 });
 
 function check_filled() {
@@ -64,4 +70,9 @@ function submit(){
             window.location.reload();
         }
     });
+}
+
+function print_promise() {
+    window.location.href='/media/preload/清华大学研究生学术道德承诺书.docx';
+    $("#release_btn").removeAttr('disabled');
 }

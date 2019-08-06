@@ -58,6 +58,7 @@ function retest() {
         type: 'POST',
         data: {'op': 'retest'},
         success: function(data) {
+            localStorage.setItem('printed', true);
             window.location.href = '/survey_fill/';
         }
     });
