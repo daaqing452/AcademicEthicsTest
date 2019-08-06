@@ -28,7 +28,8 @@ $(document).ready(function(){
         }
     });
 
-    if (localStorage.getItem('printed')) {
+    var username = $('#username').text();
+    if (localStorage.getItem('printed-' + username)) {
         //
     } else {
         $("#release_btn").attr('disabled', 'disabled');
