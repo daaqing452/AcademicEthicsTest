@@ -3,6 +3,8 @@
 /media/*
 !/media/docs/*
 !/media/preload/*
+/media/docs/.DS_Store
+/media/preload/.DS_Store
 /AcademicEthicsTest/*.pyc
 /AcademicEthicsTest/__pycache__/*.pyc
 # /AcademicEthicsTest/settings.py
