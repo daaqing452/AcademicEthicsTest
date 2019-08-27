@@ -65,8 +65,22 @@ def show_files(request):
 	if suser is None:
 		return render(request, 'permission_denied.html')
 
-	rdata['docs_n'] = docs_n = os.listdir('media/docs_n')
-	rdata['docs_s'] = docs_s = os.listdir('media/docs_s')
+	study_list = json.loads(suser.study_list)
+
+	if op == 'view':
+		filename = request.POST.get('filename')
+		if not filename in study_list:
+			study_list.append(filename)
+		study_finish = True
+		for doc in Utils.study_must:
+			if not doc in study_list:
+				study_finish = False
+		SUser.objects.filter(id=suser.id).update(study_list=json.dumps(study_list), study_finish=study_finish)
+		return HttpResponse('{}')
+	
+	rdata['docs_n'] = [{'doc': doc, 'view': doc in study_list, 'must': doc in Utils.study_must} for doc in Utils.study_n]
+	rdata['docs_s'] = [{'doc': doc, 'view': doc in study_list, 'must': doc in Utils.study_must} for doc in Utils.study_s]
+	rdata['docs_v'] = [{'doc': doc, 'view': doc in study_list, 'must': doc in Utils.study_must, 'url': Utils.study_v[doc]} for doc in Utils.study_v]
 
 	return render(request, 'show_files.html', rdata)
 

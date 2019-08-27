@@ -1,1 +1,14 @@
+{% load static %}
+<script src='{% static 'js/jquery-3.1.1.min.js' %}'> </script>
+<script src='{% static 'js/jquery-ui.min.js' %}'> </script> 
+
+<script>
+$(document).ready(function(){
+    {% if alert %}
+    alert("{{ alert_info }}");
+    window.location.href='/show_files/';
+    {% endif %}
+});
+</script>
+
 <h3>没有权限访问</h3>

@@ -36,6 +36,8 @@ def survey_fill(request):
 	rdata, op, suser = Utils.get_request_basis(request)
 	if suser is None:
 		return render(request, 'permission_denied.html')
+	if not suser.study_finish:
+		return render(request, 'permission_denied.html', {'alert': True, 'alert_info': '请先完成所有学术道德规范自学中的必学任务！'})
 
 	if op == 'load':
 		jdata = {}

@@ -5,7 +5,7 @@
 
 <body>
 <div class="row">
-	<div class="col-md-offset-3 col-md-6 ">
+	<div class="col-md-offset-2 col-md-8 ">
 		<div style="text-align: center;">
             <h1>学术道德规范自学</h1>
         </div>
@@ -16,22 +16,54 @@
 
 
 <h3>国家文件</h3>
-{% for doc in docs_n %}
-<a href='/media/docs_n/{{ doc }}'>{{ doc }}</a><br/>
+{% for d in docs_n %}
+<div style="margin-bottom:5px">
+{% if d.view %}
+<span class="label label-success">已学</span>
+{% else %}
+	{% if d.must %}
+	<span class="label label-info">必学</span>
+	{% else %}
+	<span class="label label-default">选学</span>
+	{% endif %}
+{% endif %}
+<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+</div>
 {% endfor %}
 
 <hr style="height: 1px; border: none; background-color: #BB8FCE">
 <h3>校内文件</h3>
-{% for doc in docs_s %}
-<a href='/media/docs_s/{{ doc }}'>{{ doc }}</a><br/>
+{% for d in docs_s %}
+<div style="margin-bottom:5px">
+{% if d.view %}
+<span class="label label-success">已学</span>
+{% else %}
+	{% if d.must %}
+	<span class="label label-info">必学</span>
+	{% else %}
+	<span class="label label-default">选学</span>
+	{% endif %}
+{% endif %}
+<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+</div>
 {% endfor %}
 
 <hr style="height: 1px; border: none; background-color: #BB8FCE">
 <h3>视频</h3>
-<a href='http://www.xuetangx.com/courses/course-v1:BNU+2017053101X+2019_T1/about'>北师大印波老师《科研伦理与学术规范》</a><br/>
-<a href='http://www.xuetangx.com/courses/course-v1:TsinghuaX+10690012+2019_T1/about'>清华《学术之道》</a><br/>
-<a href='http://www.xuetangx.com/courses/course-v1:TsinghuaX+Thu02016001+2016_T1/about'>清华《研究生学术与职业素养讲座》</a>
-<br/>
+{% for d in docs_v %}
+<div style="margin-bottom:5px">
+{% if d.view %}
+<span class="label label-success">已学</span>
+{% else %}
+	{% if d.must %}
+	<span class="label label-info">必学</span>
+	{% else %}
+	<span class="label label-default">选学</span>
+	{% endif %}
+{% endif %}
+<a url='{{ d.url }}' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+</div>
+{% endfor %}
 
 
 <!---<hr style="height: 1px; border: none; background-color: #BB8FCE">
@@ -45,5 +77,6 @@
 <script src='{% static 'js/jquery-3.1.1.min.js' %}'> </script>
 <script src='{% static 'js/jquery-ui.min.js' %}'> </script> 
 <script src='{% static 'js/csrf.js' %}'> </script>
+<script src='{% static 'js/show_files.js' %}'> </script>
 
 </body>
