@@ -1,8 +1,8 @@
 .DS_Store
 /文档/*
-/media/*
 !/media/docs/*
 !/media/preload/*
+# /media/*
 /media/docs/.DS_Store
 /media/preload/.DS_Store
 /AcademicEthicsTest/*.pyc
