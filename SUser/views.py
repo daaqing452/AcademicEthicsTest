@@ -65,7 +65,8 @@ def show_files(request):
 	if suser is None:
 		return render(request, 'permission_denied.html')
 
-	rdata['files'] = files = os.listdir('media/docs')
+	rdata['docs_n'] = docs_n = os.listdir('media/docs_n')
+	rdata['docs_s'] = docs_s = os.listdir('media/docs_s')
 
 	return render(request, 'show_files.html', rdata)
 

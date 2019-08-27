@@ -15,9 +15,15 @@
 		<hr style="height: 1px; border: none; background-color: #BB8FCE">
 
 
-<h3>相关文件</h3>
-{% for file in files %}
-<a href='/media/docs/{{ file }}'>{{ file }}</a><br/>
+<h3>国家文件</h3>
+{% for doc in docs_n %}
+<a href='/media/docs_n/{{ doc }}'>{{ doc }}</a><br/>
+{% endfor %}
+
+<hr style="height: 1px; border: none; background-color: #BB8FCE">
+<h3>校内文件</h3>
+{% for doc in docs_s %}
+<a href='/media/docs_s/{{ doc }}'>{{ doc }}</a><br/>
 {% endfor %}
 
 <hr style="height: 1px; border: none; background-color: #BB8FCE">
@@ -28,10 +34,10 @@
 <br/>
 
 
-<hr style="height: 1px; border: none; background-color: #BB8FCE">
+<!---<hr style="height: 1px; border: none; background-color: #BB8FCE">
 <h3>题库模拟自测</h3>
 <a href='/media/preload/学术道德规范测试题（2019）.pdf'>学术道德规范测试题（2019）</a>
-<br/>
+<br/>-->
 
 <link href='{% static 'bootstrap/css/bootstrap.min.css' %}' rel="stylesheet">
 <link href="{% static "kindeditor/themes/default/default.css" %}" rel="stylesheet">

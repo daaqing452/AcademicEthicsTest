@@ -1,9 +1,11 @@
 .DS_Store
 /文档/*
 /media/*
-!/media/docs/*
+!/media/docs_n/*
+!/media/docs_s/*
 !/media/preload/*
-/media/docs/.DS_Store
+/media/docs_n/.DS_Store
+/media/docs_s/.DS_Store
 /media/preload/.DS_Store
 /AcademicEthicsTest/*.pyc
 /AcademicEthicsTest/__pycache__/*.pyc
