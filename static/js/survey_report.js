@@ -40,6 +40,7 @@ function genMessage(q){
     for(var i = 0; i < q.right_answer.length; i++){
         message += String.fromCharCode(65 + q.right_answer[i]);
     }
+    message += "<br>题目解析: " + q.jiexi_html
     return message;
 }
 
