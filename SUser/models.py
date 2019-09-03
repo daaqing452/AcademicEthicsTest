@@ -6,3 +6,4 @@ class SUser(models.Model):
 	admin = models.BooleanField(default=0)
 	study_list = models.TextField(default='[]')
 	study_finish = models.BooleanField(default=0)
+	qstring = models.TextField(default='[]')

@@ -67,5 +67,17 @@ function retest() {
 }
 
 function print_promise() {
-    window.location.href='/media/preload/清华大学研究生学术道德承诺书.docx';
+    $.ajax({
+        url: window.location.href,
+        type: 'POST',
+        data: {'op': 'test_promise'},
+        success: function(data) {
+            data = JSON.parse(data);
+            if (data['res'] == 'yes') {
+                window.location.href='/media/preload/清华大学研究生学术道德承诺书.docx';
+            } else {
+                alert('打印承诺书需要自测分数达到90分，若未达到请重新自测')
+            }
+        }
+    });
 }

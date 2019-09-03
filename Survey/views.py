@@ -41,16 +41,20 @@ def survey_fill(request):
 
 	if op == 'load':
 		jdata = {}
-		question = Question.objects.all()[0]
-		arr = json.loads(question.question)
-		random.shuffle(arr)
-		arr = arr[:question.test_num]
-		for i in range(len(arr)):
-			ra = arr[i]['right_answer']
-			for j in range(len(ra)):
-				ra[j] = ra[j] ^ (i+1)
-			arr[i]['right_answer'] = ra
-		jdata['qstring'] = qstring = json.dumps(arr)
+		if suser.qstring == '[]':
+			question = Question.objects.all()[0]
+			arr = json.loads(question.question)
+			random.shuffle(arr)
+			arr = arr[:question.test_num]
+			for i in range(len(arr)):
+				ra = arr[i]['right_answer']
+				for j in range(len(ra)):
+					ra[j] = ra[j] ^ (i+1)
+				arr[i]['right_answer'] = ra
+			jdata['qstring'] = suser.qstring = qstring = json.dumps(arr)
+			suser.save()
+		else:
+			jdata['qstring'] = suser.qstring
 		return HttpResponse(json.dumps(jdata))
 
 	if op == 'submit':
@@ -108,5 +112,12 @@ def survey_report(request, username=''):
 		if len(answers) > 0:
 			answers[0].delete()
 		return HttpResponse(json.dumps({})) 
+
+	if op == 'test_promise':
+		jdata = {'res': 'no'}
+		print(answers[0].score)
+		if len(answers) > 0 and answers[0].score > 89.9999:
+			jdata['res'] = 'yes'
+		return HttpResponse(json.dumps(jdata))
 	
 	return render(request, "survey_report.html", rdata)
