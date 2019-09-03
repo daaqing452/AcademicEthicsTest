@@ -18,6 +18,9 @@ $(document).ready(function(){
             if(qstring == ""){
                 return;
             }
+            window.setInterval(function(){ 
+                tempSave(); 
+            }, 10000); 
             questions = JSON.parse(qstring);
             page_status = "create";
             createPage();
@@ -27,6 +30,19 @@ $(document).ready(function(){
         }
     });
 });
+
+function tempSave(){
+    var $f = $("form");
+    for(var i = 0; i < questions.length; i++){
+        var $r = $f.eq(i).find('input[name="single"]');
+        questions[i].right_answer = [];
+        for(var j = 0; j < $r.length; j++){
+            if($r.eq(j).prop("checked") == true){
+                questions[i].right_answer.push(j);
+            }
+        }
+    }
+}
 
 function fillanswer(){
     var $f = $("form");
@@ -65,7 +81,7 @@ function createModal(){
         case 1:{
             //single choice
             $("#myModal_body").empty();
-            $("#myModal_body").append(table_html,table_html);
+            $("#myModal_body").append(table_html,table_html,table_html);
             var $mymodal_table = $("#myModal_body").children(".table");
             $mymodal_table.eq(0).append(table_title_html);
             $mymodal_table.eq(1).attr("id","options");
@@ -78,15 +94,15 @@ function createModal(){
             $mymodal_tbody.append(single_table_title);
             $mymodal_tbody.append("<tr>"+option_html+"</tr>");
             $mymodal_tbody.find("input[id=\"option_index\"]").val("A");
-            
-            
-            
+            $mymodal_table.eq(2).append(table_jiexi_html);
+
+    
             break;
         }
         case 2:{
             //multiple choice
             $("#myModal_body").empty();
-            $("#myModal_body").append(table_html,table_html);
+            $("#myModal_body").append(table_html,table_html, table_html);
             var $mymodal_table = $("#myModal_body").children(".table");
             $mymodal_table.eq(0).append(table_title_html);
             $mymodal_table.eq(1).attr("id","options");
@@ -99,12 +115,15 @@ function createModal(){
             $mymodal_tbody.append(single_table_title);
             $mymodal_tbody.append("<tr>"+option_html+"</tr>");
             $mymodal_tbody.find("input[id=\"option_index\"]").val("A");
+            $mymodal_table.eq(2).append(table_jiexi_html);
                   
             break;
         }
     }
     $("#myModal_body").children(".table").eq(0).find("textarea").eq(0).attr("name","title_bianji");
     title_editor = KindEditor.create('textarea[name="title_bianji"]',options);
+    $("#myModal_body").children(".table").eq(2).find("textarea").eq(0).attr("name","jiexi_bianji");
+    jiexi_editor = KindEditor.create('textarea[name="jiexi_bianji"]',options);
 }
 
 function addOption(b)
@@ -198,6 +217,8 @@ function getQFromModal(){
     }
     q.title_html = title_editor.html();
     q.title = title_editor.text();
+    q.jiexi_html = jiexi_editor.html();
+    q.jiexi = jiexi_editor.text();
 
     switch(current_status.s_type){
         case 1:{
@@ -289,7 +310,7 @@ function modifyQ(b){
         case 1:{
             //single choice
             $("#myModal_body").empty();
-            $("#myModal_body").append(table_html,table_html);
+            $("#myModal_body").append(table_html,table_html,table_html);
             var $mymodal_table = $("#myModal_body").children(".table");
             $mymodal_table.eq(0).append(table_title_html);
             $("#myModal_body").children(".table").eq(0).find("textarea").eq(0).attr("name","title_bianji");
@@ -317,7 +338,10 @@ function modifyQ(b){
                 
 
             }
-            
+            $mymodal_table.eq(2).append(table_jiexi_html);
+            $("#myModal_body").children(".table").eq(2).find("textarea").eq(0).attr("name","jiexi_bianji");
+            jiexi_editor = KindEditor.create('textarea[name="jiexi_bianji"]',options);
+            jiexi_editor.html(q.jiexi_html);
             
             break;
         }
@@ -349,7 +373,10 @@ function modifyQ(b){
                 $mymodal_tbody.find("input[id=\"option_text\"]").eq(i).val(option.text);
             }
             
-            
+            $mymodal_table.eq(2).append(table_jiexi_html);
+            $("#myModal_body").children(".table").eq(2).find("textarea").eq(0).attr("name","jiexi_bianji");
+            jiexi_editor = KindEditor.create('textarea[name="jiexi_bianji"]',options);
+            jiexi_editor.html(q.jiexi_html);
             break;
         }
     }
