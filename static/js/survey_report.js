@@ -64,3 +64,7 @@ function retest() {
         }
     });
 }
+
+function print_promise() {
+    window.location.href='/media/preload/清华大学研究生学术道德承诺书.docx';
+}
