@@ -66,7 +66,7 @@ function createHtml(q,random_index = 0){
                     HTMLContent += "<p class=\"q_item\"> "+option.index+". ";
                 }
                 else{
-                    if(q.right_answer.indexOf(i) > -1){
+                    if((q.right_answer.indexOf(i) > -1) && (page_status == "create")){
                         HTMLContent += "<p class=\"q_item\"><input type=\"radio\" name=\"single\" checked=\"true\"> "+option.index+". ";
                     }
                     else{
@@ -91,7 +91,7 @@ function createHtml(q,random_index = 0){
                     HTMLContent += "<p class=\"q_item\"> "+option.index+". ";
                 }
                 else{
-                    if(q.right_answer.indexOf(i) > -1){
+                    if((q.right_answer.indexOf(i) > -1) && (page_status == "create")){
                         HTMLContent += "<p class=\"q_item\"><input type=\"checkbox\" name=\"single\" checked=\"true\"> "+option.index+". ";
                     }
                     else{
