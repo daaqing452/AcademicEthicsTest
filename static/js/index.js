@@ -52,7 +52,6 @@ function uglyEncrypt(s) {
 function checkAndSubmit() {
     var username = $('#username').val();
     var password = $('#password').val();
-    //password = hex_md5(password);
     password = uglyEncrypt(password);
     $('#password').val(password);
     return true;
@@ -60,7 +59,7 @@ function checkAndSubmit() {
 
 function logout() {
     $.ajax({
-        url: window.location.href,
+        url: "/index/",
         type: "POST",
         async: false,
         data: {"op": "logout"},

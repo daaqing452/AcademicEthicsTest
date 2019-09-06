@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $.ajax({
-        url: window.location.href,
+        url: "/survey_report/",
         type: 'POST',
         data: {'op': 'load'},
         success: function(data) {
@@ -68,7 +68,7 @@ function retest() {
 
 function print_promise() {
     $.ajax({
-        url: window.location.href,
+        url: "/survey_report/",
         type: 'POST',
         data: {'op': 'test_promise'},
         success: function(data) {

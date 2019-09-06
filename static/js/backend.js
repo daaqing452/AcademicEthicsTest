@@ -3,7 +3,7 @@ function change_test_num() {
 	var d = parseInt(new_test_num);
 	if (d >= 1 && d <= 100) {
 		$.ajax({
-			url: window.location.href,
+			url: "/backend/",
 			type: "POST",
 			data: {"op": "change_test_num", "new_test_num": d},
         	success: function(data) {
@@ -18,7 +18,7 @@ function change_test_num() {
 
 function download_submitted() {
 	$.ajax({
-		url: window.location.href,
+		url: "/backend/",
 		type: "POST",
 		data: {"op": "download_submitted"},
     	success: function(data) {

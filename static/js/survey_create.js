@@ -3,7 +3,7 @@
 
 $(document).ready(function(){
     $.ajax({
-        url: window.location.href,
+        url: "/survey_create/",
         type: 'POST',
         data: {'op': 'load'},
         success: function(data) {
@@ -117,6 +117,9 @@ function createModal(){
             $mymodal_tbody.find("input[id=\"option_index\"]").val("A");
             $mymodal_table.eq(2).append(table_jiexi_html);
                   
+            break;
+        }
+        default: {
             break;
         }
     }
@@ -267,6 +270,9 @@ function getQFromModal(){
             }
             break;
         }
+        default: {
+            break;
+        }
 
     }
     return q;
@@ -377,6 +383,9 @@ function modifyQ(b){
             $("#myModal_body").children(".table").eq(2).find("textarea").eq(0).attr("name","jiexi_bianji");
             jiexi_editor = KindEditor.create('textarea[name="jiexi_bianji"]',options);
             jiexi_editor.html(q.jiexi_html);
+            break;
+        }
+        default: {
             break;
         }
     }
@@ -503,7 +512,7 @@ function save() {
     }
     var Qstring = JSON.stringify(questions);
     $.ajax({
-        url: window.location.pathname,
+        url: "/survey_create/",
         type: 'POST',
         data: {'op': 'release', 'qstring': Qstring},
         success: function(data) {

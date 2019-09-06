@@ -1,7 +1,7 @@
 function view_url(a) {
 	var a = $(a);
 	$.ajax({
-		url: window.location.href,
+		url: "/show_files/",
 		type: 'POST',
 		data: {'op': 'view', 'filename': a.attr('filename')},
 		success: function(data) {

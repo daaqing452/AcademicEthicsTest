@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $.ajax({
-        url: window.location.href,
+        url: "/survey_fill/",
         type: 'POST',
         data: {'op': 'load'},
         success: function(data) {
@@ -62,7 +62,7 @@ function submit(){
     }
     var Qstring = JSON.stringify(questions);
     $.ajax({
-        url: window.location.pathname,
+        url: "/survey_fill/",
         type: 'POST',
         data: {'op': 'submit', 'qstring': Qstring},
         success: function(data) {

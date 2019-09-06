@@ -106,6 +106,9 @@ function createHtml(q,random_index = 0){
             HTMLContent += "</form></div>";
             break;
         }
+        default: {
+            break;
+        }
     }
     if(page_status == "create"){
         HTMLContent += "<div><font size=\"3\">题目解析: " + q.jiexi_html + "</div>"

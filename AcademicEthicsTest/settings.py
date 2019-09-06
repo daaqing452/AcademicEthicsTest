@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-c-nb-*0w@%vr@iqp&dg3+m9_k6m5!t2e3$5exhoht3i^mh@z5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -81,7 +81,6 @@ DATABASES = {
         'NAME': 'AcademicDatabase',
         'USER': 'root',
         'PASSWORD': 'SurveyDatabase',
-        # 'PASSWORD': 'Real#Shit3',
         'HOST': '127.0.0.1',
         'OPTIONS': {'charset': 'utf8mb4'},
     }
@@ -89,7 +88,6 @@ DATABASES = {
 
 
 # Password validation
-# https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
