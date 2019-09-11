@@ -55,7 +55,7 @@ function showresults(){
 
 function retest() {
     $.ajax({
-        url: window.location.href,
+        url: "/survey_report/",
         type: 'POST',
         data: {'op': 'retest'},
         success: function(data) {

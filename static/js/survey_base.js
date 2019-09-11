@@ -11,6 +11,12 @@ var answers = new Array();
 var q_table = document.getElementById("questions");
 var page_status = "";
 
+var sanitizeHTML = function (str) {
+    var temp = document.createElement('div');
+    temp.textContent = str;
+    return temp.innerHTML;
+};
+
 function prefixzero(num){
     if(Number(num) < 10){
         return "0" + num.toString();
@@ -34,10 +40,16 @@ function gettimeformat(now_t) {
 function createPage(){
     for(var i = 0; i < questions.length; i++){
         var new_row = q_table.insertRow(-1);
-        new_row.innerHTML = createHtml(questions[i],i);
+        var ch = createHtml(questions[i],i);
+        new_row.innerHTML = unescapeHTML(sanitizeHTML(createHtml(questions[i],i)));
     }
 
 }
+
+var unescapeHTML = function(a){  
+    a = "" + a;  
+    return a.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&apos;/g, "'");  
+} 
 
 function getindex(){
     var q_table = document.getElementById("questions");

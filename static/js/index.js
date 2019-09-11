@@ -22,7 +22,7 @@ function IsPC() {
 function uglyEncrypt(s) {
     var magic_number = 123456789;
     $.ajax({
-        url: window.location.href,
+        url: "/index/",
         type: "POST",
         async: false,
         data: {"op": "get_magic_number"},
