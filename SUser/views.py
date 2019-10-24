@@ -61,7 +61,7 @@ def index(request):
 
 	return render(request, 'index.html', rdata)
 
-def show_files(request):
+def show_files(request, pageid=0):
 	rdata, op, suser = Utils.get_request_basis(request)
 	if suser is None:
 		return render(request, 'permission_denied.html')
@@ -79,6 +79,7 @@ def show_files(request):
 		SUser.objects.filter(id=suser.id).update(study_list=json.dumps(study_list), study_finish=study_finish)
 		return HttpResponse('{}')
 	
+	rdata['pageid'] = int(pageid)
 	rdata['docs_n'] = [{'doc': doc, 'view': doc in study_list, 'must': doc in Utils.study_must} for doc in Utils.study_n]
 	rdata['docs_s'] = [{'doc': doc, 'view': doc in study_list, 'must': doc in Utils.study_must} for doc in Utils.study_s]
 	rdata['docs_v'] = [{'doc': doc, 'view': doc in study_list, 'must': doc in Utils.study_must, 'url': Utils.study_v[doc]} for doc in Utils.study_v]
