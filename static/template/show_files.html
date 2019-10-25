@@ -15,55 +15,69 @@
 		<hr style="height: 1px; border: none; background-color: #BB8FCE">
 
 
-<h3>国家文件</h3>
-{% for d in docs_n %}
-<div style="margin-bottom:5px">
-{% if d.view %}
-<span class="label label-success">已学</span>
-{% else %}
-	{% if d.must %}
-	<span class="label label-info">必学</span>
-	{% else %}
-	<span class="label label-default">选学</span>
-	{% endif %}
-{% endif %}
-<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
-</div>
-{% endfor %}
+{% ifequal pageid 0 %}
+<a href='/show_files/1/'>国家文件</a><br/>
+<a href='/show_files/2/'>校内文件</a><br/>
+<a href='/show_files/3/'>视频</a><br/>
+{% endifequal %}
 
-<hr style="height: 1px; border: none; background-color: #BB8FCE">
-<h3>校内文件</h3>
-{% for d in docs_s %}
-<div style="margin-bottom:5px">
-{% if d.view %}
-<span class="label label-success">已学</span>
-{% else %}
-	{% if d.must %}
-	<span class="label label-info">必学</span>
+{% ifequal pageid 1 %}
+	<h3>国家文件</h3>
+	{% for d in docs_n %}
+	<div style="margin-bottom:5px">
+	{% if d.view %}
+	<span class="label label-success">已学</span>
 	{% else %}
-	<span class="label label-default">选学</span>
+		{% if d.must %}
+		<span class="label label-info">必学</span>
+		{% else %}
+		<span class="label label-default">选学</span>
+		{% endif %}
 	{% endif %}
-{% endif %}
-<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
-</div>
-{% endfor %}
+	<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+	</div>
+	{% endfor %}
+{% endifequal %}
 
-<hr style="height: 1px; border: none; background-color: #BB8FCE">
-<h3>视频</h3>
-{% for d in docs_v %}
-<div style="margin-bottom:5px">
-{% if d.view %}
-<span class="label label-success">已学</span>
-{% else %}
-	{% if d.must %}
-	<span class="label label-info">必学</span>
+<!--<hr style="height: 1px; border: none; background-color: #BB8FCE">-->
+
+{% ifequal pageid 2 %}
+	<h3>校内文件</h3>
+	{% for d in docs_s %}
+	<div style="margin-bottom:5px">
+	{% if d.view %}
+	<span class="label label-success">已学</span>
 	{% else %}
-	<span class="label label-default">选学</span>
+		{% if d.must %}
+		<span class="label label-info">必学</span>
+		{% else %}
+		<span class="label label-default">选学</span>
+		{% endif %}
 	{% endif %}
-{% endif %}
-<a url='{{ d.url }}' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
-</div>
-{% endfor %}
+	<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+	</div>
+	{% endfor %}
+{% endifequal %}
+
+<!--<hr style="height: 1px; border: none; background-color: #BB8FCE">-->
+
+{% ifequal pageid 3 %}
+	<h3>视频</h3>
+	{% for d in docs_v %}
+	<div style="margin-bottom:5px">
+	{% if d.view %}
+	<span class="label label-success">已学</span>
+	{% else %}
+		{% if d.must %}
+		<span class="label label-info">必学</span>
+		{% else %}
+		<span class="label label-default">选学</span>
+		{% endif %}
+	{% endif %}
+	<a url='{{ d.url }}' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+	</div>
+	{% endfor %}
+{% endifequal %}
 
 
 <!---<hr style="height: 1px; border: none; background-color: #BB8FCE">

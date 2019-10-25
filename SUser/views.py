@@ -16,8 +16,13 @@ import os
 import time
 
 
+LOGIN_TYPE = 'NORMAL'
+APPID = 'YJSDDGF'
+APPMD5 = 'b11bc93ee926eff46a7ffc4276bef7df'
+
 def index(request):
 	rdata, op, suser = Utils.get_request_basis(request)
+	rdata['LOGIN_TYPE'] = LOGIN_TYPE
 	
 	if op == 'get_magic_number':
 		return HttpResponse(json.dumps({'magic_number': Utils.MAGIC_NUMBER}))
@@ -26,42 +31,48 @@ def index(request):
 		auth.logout(request)
 		return HttpResponse('{}');
 
-	username = request.POST.get('username')
-	password = request.POST.get('password')
-
-	if username is not None and password is not None:
-		password = Utils.uglyDecrypt(password)
-
-		# 判断是否存在
-		susers = SUser.objects.filter(username=username)
-		existed = (len(susers) > 0)
-
-		# 判断是否是清华账号
-		if username.isdigit() and len(username) == 10:
-			pass
-
-		if not existed:
-			rdata['info'] = '用户名不存在'
-		else:
-			# 验证
-			user = auth.authenticate(username=username, password=password)
-			if user is not None:
-				auth.login(request, user)
-				rdata['login'] = True
-				rdata['suser'] = suser = SUser.objects.get(uid=request.user.id)
-				login = True
+	if LOGIN_TYPE == 'NORMAL':
+		username = request.POST.get('username')
+		password = request.POST.get('password')
+		if username is not None and password is not None:
+			password = Utils.uglyDecrypt(password)
+			# 判断是否存在
+			susers = SUser.objects.filter(username=username)
+			existed = (len(susers) > 0)
+			# 判断是否是清华账号
+			if username.isdigit() and len(username) == 10:
+				pass
+			if not existed:
+				rdata['info'] = '用户名不存在'
 			else:
-				rdata['info'] = '密码错误'
-	
-	else:
-		if suser is None:
-			rdata['login'] = False
+				# 验证
+				user = auth.authenticate(username=username, password=password)
+				if user is not None:
+					auth.login(request, user)
+					rdata['login'] = True
+					rdata['suser'] = suser = SUser.objects.get(uid=request.user.id)
+					login = True
+				else:
+					rdata['info'] = '密码错误'
 		else:
-			rdata['login'] = True
+			if suser is None:
+				rdata['login'] = False
+			else:
+				rdata['login'] = True
+
+	elif LOGIN_TYPE == "ID_TSINGHUA":
+		rdata['id_tsinghua_url'] = 'https://id.tsinghua.edu.cn/do/off/ui/auth/login/form/' + APPMD5 + '/login'
 
 	return render(request, 'index.html', rdata)
 
-def show_files(request):
+def login(request):
+	ticket = request.GET['ticket']
+	userip = request.META['REMOTE_ADDR']
+	userip = userip.replace('.', '_')
+	print(userip)
+	return HttpResponse("Hello world")
+
+def show_files(request, pageid=0):
 	rdata, op, suser = Utils.get_request_basis(request)
 	if suser is None:
 		return render(request, 'permission_denied.html')
@@ -79,6 +90,7 @@ def show_files(request):
 		SUser.objects.filter(id=suser.id).update(study_list=json.dumps(study_list), study_finish=study_finish)
 		return HttpResponse('{}')
 	
+	rdata['pageid'] = int(pageid)
 	rdata['docs_n'] = [{'doc': doc, 'view': doc in study_list, 'must': doc in Utils.study_must} for doc in Utils.study_n]
 	rdata['docs_s'] = [{'doc': doc, 'view': doc in study_list, 'must': doc in Utils.study_must} for doc in Utils.study_s]
 	rdata['docs_v'] = [{'doc': doc, 'view': doc in study_list, 'must': doc in Utils.study_must, 'url': Utils.study_v[doc]} for doc in Utils.study_v]
