@@ -172,7 +172,7 @@ function commitS(){
     if(operate_index == current_status.index){
         questions.push(q);
         var new_row = q_table.insertRow(-1);
-        new_row.innerHTML = unescapeHTML(sanitizeHTML(createHtml(q)));
+        new_row.innerHTML = createHtml(q);
         current_status.index ++;
         if(current_status.action == 2){
             deleteQ($(q_table.rows[operate_index-1]).children("td"));
@@ -183,13 +183,13 @@ function commitS(){
     else{
         questions.splice(operate_index,0,q);
         var new_row = q_table.insertRow(operate_index);
-        new_row.innerHTML = unescapeHTML(sanitizeHTML(createHtml(q)));
+        new_row.innerHTML = createHtml(q);
         var rows = q_table.rows;
         if(q.s_type != 8){
             for(var i = operate_index+1; i < questions.length; i ++)
             {
                 questions[i].index ++;
-                rows[i].innerHTML = unescapeHTML(sanitizeHTML(createHtml(questions[i])));
+                rows[i].innerHTML = createHtml(questions[i]);
             }
         }
         if(current_status.action == 2){
@@ -300,7 +300,7 @@ function deleteQ(b){
         for(var i = index; i < questions.length; i ++)
         {
             questions[i].index --;
-            rows[i].innerHTML = unescapeHTML(sanitizeHTML(createHtml(questions[i])));
+            rows[i].innerHTML = createHtml(questions[i]);
         }
     }
     operate_index = current_status.index;
@@ -414,7 +414,7 @@ function moveQup(b){
     }
     var rows = q_table.rows;
     for(var i = 0; i < questions.length; i++){
-        rows[i].innerHTML = unescapeHTML(sanitizeHTML(createHtml(questions[i])));
+        rows[i].innerHTML = createHtml(questions[i]);
     }
 }
 
@@ -439,29 +439,11 @@ function moveQdown(b){
     }
     var rows = q_table.rows;
     for(var i = 0; i < questions.length; i++){
-        rows[i].innerHTML = unescapeHTML(sanitizeHTML(createHtml(questions[i])));
+        rows[i].innerHTML = createHtml(questions[i]);
     }
 }
 
-function copyQ(b){
-    var $b = $(b);
-    var index = $b.parents("tr").index();
-    var temp_q = clone(questions[index]);
-    temp_q.index += 1
-    questions.splice(index+1,0,temp_q);
-    var new_row = q_table.insertRow(index+1);
-    new_row.innerHTML = unescapeHTML(sanitizeHTML(createHtml(temp_q)));
-    var rows = q_table.rows;
-    for(var i = index+2; i < questions.length; i++){
-        if(temp_q.s_type != 8){
-            questions[i].index ++;
-        }
-        rows[i].innerHTML = unescapeHTML(sanitizeHTML(createHtml(questions[i])));
-    }
-    current_status.index ++;
-    operate_index = current_status.index;
 
-}
 
 function clone(myObj){  
     var new_obj = {};
