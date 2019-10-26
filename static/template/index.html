@@ -43,7 +43,11 @@
                 {% endifequal %}
 
                 {% ifequal LOGIN_TYPE 'ID_TSINGHUA' %}
-                <button class="btn btn-lg btn-block" style="background-color: #BB8FCE; color: white"><a href="{{ id_tsinghua_url }}">使用清华登录接口登录</a></button>
+		<a href="{{ id_tsinghua_url }}">
+                	<button class="btn btn-lg btn-block" style="background-color: #BB8FCE; color: white">
+				使用清华登录接口登录
+			</button>
+		</a>
                 {% endifequal %}
 
             {% endif %}
