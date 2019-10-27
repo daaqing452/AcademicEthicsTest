@@ -37,13 +37,12 @@
                 <input id='password' type='password' name='password' class="form-control" placeholder="密码"/>
                 <br />
                 <input type="submit" class="btn btn-lg btn-block" onclick="return checkAndSubmit();" value="登录" style="background-color: #BB8FCE; color: white" />
-
-                <a href="{{ id_tsinghua_url }}">
-                    <button class="btn btn-lg btn-block" style="background-color: #BB8FCE; color: white">
-                        使用清华登录接口登录
-                    </button>
-                </a>
             </form>
+            <a href="{{ id_tsinghua_url }}">
+                <button class="btn btn-lg btn-block" style="background-color: #BB8FCE; color: white">
+                    使用清华登录接口登录
+                </button>
+            </a>
             <span>{{ info }}</span>
             {% endif %}
         </div>
