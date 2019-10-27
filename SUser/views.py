@@ -14,9 +14,10 @@ import SUser.utils as Utils
 import json
 import os
 import time
+from urllib.request import urlopen
 
 
-LOGIN_TYPE = 'NORMAL'
+LOGIN_TYPE = 'ID_TSINGHUA'
 APPID = 'YJSDDGF'
 APPMD5 = 'b11bc93ee926eff46a7ffc4276bef7df'
 
@@ -61,16 +62,24 @@ def index(request):
 				rdata['login'] = True
 
 	elif LOGIN_TYPE == "ID_TSINGHUA":
-		rdata['id_tsinghua_url'] = 'https://id.tsinghua.edu.cn/do/off/ui/auth/login/form/' + APPMD5 + '/login'
+		rdata['id_tsinghua_url'] = 'https://id.tsinghua.edu.cn/do/off/ui/auth/login/form/' + APPMD5 + '/0?/login'
 
 	return render(request, 'index.html', rdata)
 
 def login(request):
-	ticket = request.GET['ticket']
-	userip = request.META['REMOTE_ADDR']
-	userip = userip.replace('.', '_')
-	print(userip)
-	return HttpResponse("Hello world")
+    ticket = request.GET['ticket']
+    userip = request.META['REMOTE_ADDR']
+    userip = userip.replace('.', '_')
+    info_url = 'https://id.tsinghua.edu.cn/thuser/authapi/checkticket/' + APPID + '/' + ticket + '/' + userip
+    resp = urlopen(info_url)
+    info = resp.read().decode('utf-8').split(':')
+    username   = info[1].split('=')[1]
+    yhm        = info[2].split('=')[1]
+    name       = info[3].split('=')[1]
+    usertype   = info[4].split('=')[1]
+    department = info[5].split('=')[1]
+    email      = info[6].split('=')[1]
+    return HttpResponse(resp)
 
 def show_files(request, pageid=0):
 	rdata, op, suser = Utils.get_request_basis(request)
