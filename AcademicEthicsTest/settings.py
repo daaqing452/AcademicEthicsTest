@@ -86,6 +86,16 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'AcademicDatabase',
+#         'USER': 'root',
+#         'PASSWORD': 'Real#Shit3',
+#         'HOST': '127.0.0.1',
+#         'OPTIONS': {'charset': 'utf8mb4'},
+#     }
+# }
 
 # Password validation
 
