@@ -7,7 +7,7 @@
 /media/preload/.DS_Store
 /AcademicEthicsTest/*.pyc
 /AcademicEthicsTest/__pycache__/*.pyc
-# /AcademicEthicsTest/settings.py
+/AcademicEthicsTest/settings.py
 /SUser/.DS_Store
 /SUser/migrations/*
 /SUser/__pycache__/*.pyc
