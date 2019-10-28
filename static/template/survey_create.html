@@ -6,7 +6,11 @@
     <title> 问卷页面 </title>
     
 </head>
-
+<style type="text/css">
+.box-shadow {
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
+}
+</style>
 <body>
 <div class="col-md-offset-2 col-md-8 ">
     <div class="panel" style="border-color: #BB8FCE; border-width: 2px">
@@ -16,9 +20,9 @@
             </div>
             </br>
             <div class="btn-group" name="my-btn-group" style="width: 100%">
-                <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal"  onclick="createSurvey(1)" style="background-color: #BB8FCE; color: white; margin-right: 5px;"> 单项选择 </button>
-                <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal" onclick="createSurvey(2)" style="background-color: #BB8FCE; color: white;"> 多项选择 </button>
-                <button type="button" class="btn btn-sm"  onclick="window.location.href='/index'" style="float: right; background-color: #BB8FCE; color: white;"> 返回首页 </button>
+                <button type="button" class="btn btn-sm box-shadow" data-toggle="modal" data-target="#myModal"  onclick="createSurvey(1)" style="color: #6F049C; border-radius: 50px 50px 50px 50px; width: 70px; margin-right: 5px; background: white;"> 单项选择 </button>
+                <button type="button" class="btn btn-sm box-shadow" data-toggle="modal" data-target="#myModal" onclick="createSurvey(2)" style="color: #6F049C; border-radius: 50px 50px 50px 50px; width: 70px; background: white;"> 多项选择 </button>
+                <button type="button" class="btn btn-sm box-shadow"  onclick="window.location.href='/index'" style="color: #6F049C; border-radius: 50px 50px 50px 50px; width: 70px; float: right; background: white;"> 返回首页 </button>
             </div>
             <hr style="height: 2px; border: none; background-color: #BB8FCE">
             <div style="text-align:left;width: 100%" >
@@ -29,7 +33,7 @@
                 </table>
             </div>
             <!--<button id="save_btn" class="btn btn-success " onclick="save()" style="float:right"> 暂存 </button>-->
-            <button id="release_btn" class="btn btn-sm" onclick="save()" style="float:right;background-color: #BB8FCE; color: white;"> 保存 </button>
+            <button id="release_btn" class="btn btn-sm box-shadow" data-toggle="modal" data-target="#myModal_alert" onclick="save()" style="color: #6F049C; border-radius: 50px 50px 50px 50px; width: 70px; float: right; background: white;"> 保存 </button>
         </div>
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
@@ -61,6 +65,23 @@
                
               </div>
               <div class="modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="myModal_alert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
+          <div class="modal-dialog" >
+            <div class="modal-content" style = "background-image:url('{% static 'img/alert.jpg' %}'); width: 466px; height: 220px;">
+              
+              <div class="modal-body"   style="width: 466px; height: 70%;"> 
+                <div style="margin-top: 10%; text-align: center;" id="myModal_alert_body">
+                   
+                </div>
+                
+              </div>
+              <div class="modal-footer" style="border-top: 0 none;">
+              <button type="button" id = "check_button" class="btn btn-default box-shadow" data-dismiss="modal" style="color: #6F049C; border-radius: 50px 50px 50px 50px; width: 70px;" >确定</button>
               </div>
             </div>
           </div>

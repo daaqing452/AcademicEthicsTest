@@ -26,6 +26,16 @@ function prefixzero(num){
     }
 }
 
+window.alert = function create_alert(str, flag){
+    $("#myModal_alert_body").empty();
+    $("#myModal_alert_body").append("<p style=\"color:white\">" + str + "</p>");
+    if(flag == 1){
+        $("#check_button").attr("onclick", "window.location.reload()");
+    }
+}
+
+
+
 function gettimeformat(now_t) {
     var year = prefixzero(now_t.getFullYear().toString());
     var month = prefixzero((now_t.getMonth()+1).toString());
@@ -41,7 +51,7 @@ function createPage(){
     for(var i = 0; i < questions.length; i++){
         var new_row = q_table.insertRow(-1);
         var ch = createHtml(questions[i],i);
-        new_row.innerHTML = unescapeHTML(sanitizeHTML(createHtml(questions[i],i)));
+        new_row.innerHTML = createHtml(questions[i],i);
     }
 
 }
@@ -59,35 +69,36 @@ function getindex(){
 }
 
 function createHtml(q,random_index = 0){
-    var HTMLContent = "<td>";
+    var HTMLContent = "<td><div class=\"box-shadow\" style=\"margin-left: 20%; margin-right: 20%; margin-bottom: 2%; overflow: hidden;\">";
     var index = q.index;
     if(page_status == "create"){
-        HTMLContent += "<div><font size=\"3\">"+(index + 1).toString() + "." + q.title_html+"</font>";
+        HTMLContent += "<div style=\"margin-bottom: 10px; margin-left: 5%; margin-top: 5%\"><font size=\"4\">"+(index + 1).toString() + "." + q.title_html+"</font>";
     }
     else{
-        HTMLContent += "<div><font size=\"3\">"+(random_index + 1).toString() + "." + q.title_html+"</font>";
+        HTMLContent += "<div style=\"margin-bottom: 10px; margin-left: 5%; margin-top: 5%\"><font size=\"4\">"+(random_index + 1).toString() + "." + q.title_html+"</font>";
     }
     switch(q.s_type){
         case 1:{
             HTMLContent += "</div>";
-            HTMLContent += "<div><form>";
+            HTMLContent += "<div style=\"margin-left: 5%; margin-bottom: 5%\"><form>";
             for(var i = 0; i < q.n_option; i ++)
             {
                 var option = q.options[i];
                 if(page_status == "report"){
-                    HTMLContent += "<p class=\"q_item\"> "+option.index+". ";
+                    HTMLContent += "<p class=\"q_item\"> "+option.index+". " + option.text + "</p>";
                 }
                 else{
                     if((q.right_answer.indexOf(i) > -1) && (page_status == "create")){
-                        HTMLContent += "<p class=\"q_item\"><input type=\"radio\" name=\"single\" checked=\"true\"> "+option.index+". ";
+                        HTMLContent += "<div ><input type=\"radio\" name=\"single\" checked=\"true\" > <label class=\"q_item\" onclick=\"textcheck(this)\" style=\"margin-left: 10px;\">"+option.index+". ";
                     }
                     else{
-                        HTMLContent += "<p class=\"q_item\"><input type=\"radio\" name=\"single\" > "+option.index+". ";
+                        HTMLContent += "<div ><input type=\"radio\" name=\"single\" > <label class=\"q_item\" onclick=\"textcheck(this)\" style=\"margin-left: 10px;\">"+option.index+". ";
                     }
+                    HTMLContent += option.text;
+                    HTMLContent += "</label></div>";
                     
                 }
-                HTMLContent += option.text;
-                HTMLContent += "</p>";
+                
                 
             }
             HTMLContent += "</form></div>";
@@ -95,24 +106,24 @@ function createHtml(q,random_index = 0){
         }
         case 2:{
             HTMLContent += "</div>";
-            HTMLContent += "<div><form>";
+            HTMLContent += "<div style=\"margin-left: 5%; margin-bottom: 5%\"><form>";
             for(var i = 0; i < q.n_option; i ++)
             {
                 var option = q.options[i];
                 if(page_status == "report"){
-                    HTMLContent += "<p class=\"q_item\"> "+option.index+". ";
+                    HTMLContent += "<p class=\"q_item\"> "+option.index+". " + option.text + "</p>";
                 }
                 else{
                     if((q.right_answer.indexOf(i) > -1) && (page_status == "create")){
-                        HTMLContent += "<p class=\"q_item\"><input type=\"checkbox\" name=\"single\" checked=\"true\"> "+option.index+". ";
+                        HTMLContent += "<div ><input type=\"checkbox\" name=\"single\" checked=\"true\"> <label class=\"q_item\" onclick=\"textcheck(this)\" style=\"margin-left: 10px;\">"+option.index+". ";
                     }
                     else{
-                        HTMLContent += "<p class=\"q_item\"><input type=\"checkbox\" name=\"single\"> "+option.index+". ";
+                        HTMLContent += "<div><input type=\"checkbox\" name=\"single\"> <label class=\"q_item\" onclick=\"textcheck(this)\" style=\"margin-left: 10px;\"> "+option.index+". ";
                     }
-                    
+                    HTMLContent += option.text;
+                    HTMLContent += "</label></div>";
                 }
-                HTMLContent += option.text;
-                HTMLContent += "</p>";
+                
                 
             }
             HTMLContent += "</form></div>";
@@ -123,11 +134,22 @@ function createHtml(q,random_index = 0){
         }
     }
     if(page_status == "create"){
-        HTMLContent += "<div><font size=\"3\">题目解析: " + q.jiexi_html + "</div>"
-    	HTMLContent += "<br><div><button class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#myModal2\" onclick=\"addQAfter(this)\">插入</button><button class=\"btn btn-danger btn-sm\" onclick=\"deleteQ(this)\">删除</button><button data-toggle=\"modal\" data-target=\"#myModal\" class=\"btn btn-warning btn-sm\" onclick=\"modifyQ(this)\">修改</button>";
+        HTMLContent += "<div style=\"margin-left: 5%;\"><font size=\"3\">题目解析: " + q.jiexi_html + "</div>"
+    	HTMLContent += "<br><div style=\"margin-left: 5%;\"><button class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#myModal2\" onclick=\"addQAfter(this)\">插入</button><button class=\"btn btn-danger btn-sm\" onclick=\"deleteQ(this)\">删除</button><button data-toggle=\"modal\" data-target=\"#myModal\" class=\"btn btn-warning btn-sm\" onclick=\"modifyQ(this)\">修改</button>";
     	HTMLContent += "<button class=\"btn btn-success btn-sm\" onclick=\"moveQup(this)\">上移</button><button class=\"btn btn-success btn-sm\" onclick=\"moveQdown(this)\">下移</button></div><hr>";
     }
     HTMLContent += "</td>";
     return HTMLContent;
+}
+
+function textcheck(b){
+    var $b = $(b);
+    if($b.prev().prop('checked')){
+        $b.prev().prop('checked', false);
+    }
+    else{
+        $b.prev().prop('checked', true);
+    }
+    
 }
 

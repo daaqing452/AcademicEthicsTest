@@ -8,17 +8,27 @@
 </head>
 
 <body>
+<style type="text/css">
+.box-shadow {
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
+}
+</style>
 
 <div class="col-md-offset-2 col-md-8 ">
-    <div class="panel" style="border-color: #BB8FCE; border-width: 2px">
-        <div class="panel-body">
-            <div class="input-group">
-                <h1>学术道德规范自测</h1>
+    <!-- <div class="panel" style="border-color: #BB8FCE; border-width: 2px"> -->
+    <div class="panel" >
+        <div class="panel-body" >
+            <div style = "background-image:url('{% static 'img/fillback.jpg' %}'); width: 100%; height: 200px;  ">
+                <div class="input-group" style="margin-left: 10%; margin-bottom: 5%">
+                    <h1 style="margin-top: 20%">学术道德规范自测</h1>
+                </div>
+                <div class="btn-group" name="my-btn-group" style="width: 100%; margin-left: 10%">
+                <button type="button" class="btn btn-sm box-shadow"  onclick="window.location.href='/index'" style="color: #6F049C; background: white; border-radius: 50px 50px 50px 50px; width: 70px;"> 返回首页 </button>
+                </div>
             </div>
-            <div class="btn-group" name="my-btn-group" style="width: 100%">
-            <button type="button" class="btn btn-sm"  onclick="window.location.href='/index'" style="float: right;background-color: #BB8FCE; color: white;"> 返回首页 </button>
-            </div>
-            <hr style="height: 2px; border: none; background-color: #BB8FCE">
+            <!-- <hr style="height: 2px; border: none; background-color: #BB8FCE"> -->
+            <br/>
+            <br/>
             <div style="text-align:left;width: 100%" >
                 <table id="questions"  style="table-layout:fixed;word-break:break-all;border: 0px;width: 100%" >
                 <tbody>
@@ -26,10 +36,28 @@
                 </tbody>
                 </table>
             </div>
-            <button id="release_btn" class="btn btn-sm" onclick="submit()" style="float:right; background-color: #BB8FCE; color: white; margin-left: 5px"> 提交 </button>
+            <div style = "background-image:url('{% static 'img/fillbuttom.jpg' %}'); width: 100%; height: 150px; background-size: cover;">
+                <button id="release_btn" class="btn btn-sm box-shadow" data-toggle="modal" data-target="#myModal_alert" onclick="submit()" style="float: right; color: #6F049C; background: white; border-radius: 50px 50px 50px 50px; width: 70px; margin-top: 10px; margin-right: 20%"  > 提交 </button>
+            </div>
             <!--<button type="button" class="btn btn-sm" style="float: right; background-color: #BB8FCE; color: white;" onclick="print_promise()" style="text-decoration:none; " >打印承诺书</button>
             <br/><br/>
             <span style="float:right">在打印承诺书后方可提交</span>-->
+            <div class="modal fade" id="myModal_alert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
+              <div class="modal-dialog" >
+                <div class="modal-content" style = "background-image:url('{% static 'img/alert.jpg' %}'); width: 466px; height: 220px;">
+                  
+                  <div class="modal-body"   style="width: 466px; height: 70%;"> 
+                    <div style="margin-top: 10%; text-align: center;" id="myModal_alert_body">
+                       
+                    </div>
+                    
+                  </div>
+                  <div class="modal-footer" style="border-top: 0 none;">
+                  <button type="button" id = "check_button" class="btn btn-default box-shadow" data-dismiss="modal" style="color: #6F049C; border-radius: 50px 50px 50px 50px; width: 70px; " >确定</button>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
     </div>
 </div>

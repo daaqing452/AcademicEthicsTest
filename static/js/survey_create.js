@@ -471,6 +471,7 @@ function clone(myObj){
 function check_filled() {
     var $f = $("form");
     var wrong_info = "";
+    var info_cnt = 0;
     for(var i = 0; i < questions.length; i++){
         var $r = $f.eq(i).find('input[name="single"]');
         questions[i].right_answer = [];
@@ -480,7 +481,11 @@ function check_filled() {
             }
         }
         if(questions[i].right_answer.length == 0){
-            wrong_info += "第"+(i+1)+"题没有填写正确答案\n";
+            wrong_info += "第"+(i+1)+"题没有填写正确答案 <br/>";
+            info_cnt += 1;
+        }
+        if(info_cnt >= 4){
+            break;
         }
     }
     return wrong_info;
@@ -489,7 +494,7 @@ function check_filled() {
 function save() {
     var wrong_info = check_filled();
     if(wrong_info != ""){
-        alert(wrong_info);
+        alert(wrong_info, 0);
         return;
     }
     var Qstring = JSON.stringify(questions);
@@ -499,8 +504,8 @@ function save() {
         data: {'op': 'release', 'qstring': Qstring},
         success: function(data) {
             var data = JSON.parse(data);
-            alert("保存成功！");
-            window.location.reload();
+            alert('保存成功!', 1);
+            // window.location.reload();
         }
     });
 }

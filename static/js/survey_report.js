@@ -49,7 +49,7 @@ function showresults(){
     for(var i = 0; i < questions.length; i++){
         $div = $f.eq(i).parent();
         var message = genMessage(questions[i]);
-        $div.append(message + "<hr>");
+        $div.append(message );
     }
 }
 

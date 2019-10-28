@@ -57,7 +57,7 @@ function check_filled() {
 function submit(){
     var wrong_info = check_filled();
     if(wrong_info != ""){
-        alert(wrong_info);
+        alert(wrong_info, 0);
         return;
     }
     var Qstring = JSON.stringify(questions);
@@ -67,8 +67,8 @@ function submit(){
         data: {'op': 'submit', 'qstring': Qstring},
         success: function(data) {
             var data = JSON.parse(data);
-            alert("提交成功！");
-            window.location.reload();
+            alert("提交成功！", 1);
+            // window.location.reload();
         }
     });
 }

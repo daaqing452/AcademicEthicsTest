@@ -3,80 +3,134 @@
 	<title> 学术道德规范自学 </title>
 </head>
 
-<body>
-<div class="row">
-	<div class="col-md-offset-2 col-md-8 ">
-		<div style="text-align: center;">
-            <h1>学术道德规范自学</h1>
-        </div>
-		<div class="btn-group" name="my-btn-group" style="width: 100%">
-        <button type="button" class="btn  btn-sm"  onclick="window.location.href='/index'" style="float: right;background-color: #BB8FCE; color: white;"> 返回首页 </button>
-        </div>
-		<hr style="height: 1px; border: none; background-color: #BB8FCE">
+<style type="text/css">
+.box-shadow {
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
+}
+</style>
+
+
+
 
 
 {% ifequal pageid 0 %}
-<a href='/show_files/1/'>国家文件</a><br/>
-<a href='/show_files/2/'>校内文件</a><br/>
-<a href='/show_files/3/'>视频</a><br/>
+<body>
+<div class="row">
+<div class="col-md-offset-3 col-md-6 " style="margin-top: 5%;background-image:url('{% static 'img/showback.jpg' %}');  background-size: cover; height: 516px; overflow: hidden;">
+		<div style="text-align: center; margin-top: 10%">
+            <h1 style="color: white;">学术道德规范自学</h1>
+        </div>
+		<div class="btn-group" name="my-btn-group" style="width: 100%; overflow: hidden; text-align: center;">
+        <div style="margin-top: 10%">
+		<a href='/show_files/1/'><img style="width: 20%; display: inline; margin-right: 10%" src = '{% static 'img/nationfiles.jpg' %}'></a>
+		<a href='/show_files/2/'><img style="width: 20%; display: inline; margin-right: 10%" src = '{% static 'img/schoolfiles.jpg' %}' ></a>
+		<a href='/show_files/3/'><img style="width: 20%; display: inline" src = '{% static 'img/videofiles.jpg' %}'></a>
+		</div>
+		<!-- <a href='/show_files/1/'>国家文件</a><br/>
+		<a href='/show_files/2/'>校内文件</a><br/>
+		<a href='/show_files/3/'>视频</a><br/> -->
+		<button type="button" class="btn  btn-sm"  onclick="window.location.href='/index'" style="color: #6F049C; border-radius: 50px 50px 50px 50px; width: 100px; float: right; background: white; margin-top: 15%;"> 返回上一级 </button>
+        </div>
+</div>
+</div>
+</body>
 {% endifequal %}
 
 {% ifequal pageid 1 %}
-	<h3>国家文件</h3>
-	{% for d in docs_n %}
-	<div style="margin-bottom:5px">
-	{% if d.view %}
-	<span class="label label-success">已学</span>
-	{% else %}
-		{% if d.must %}
-		<span class="label label-info">必学</span>
-		{% else %}
-		<span class="label label-default">选学</span>
-		{% endif %}
-	{% endif %}
-	<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+<body style=" background-size:cover; height: 100%; width: 100%; background-repeat:no-repeat; background-attachment:fixed;" background='{% static 'img/filesback.jpg' %}'>
+<div class="row">
+	<div class="col-md-offset-2 col-md-8" style="margin-top: 10%; ">
+		
+		<img style="width: 25%; margin-right: 5%; float: left;" src = '{% static 'img/nationfiles.jpg' %}'>
+		
+		<div style="float: left">
+			{% for d in docs_n %}
+			<div style="margin-bottom:5px">
+			{% if d.view %}
+			<span class="label label-success">已学</span>
+			{% else %}
+				{% if d.must %}
+				<span class="label label-info">必学</span>
+				{% else %}
+				<span class="label label-default">选学</span>
+				{% endif %}
+			{% endif %}
+			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+			</div>
+			{% endfor %}
+		</div>
+		<button type="button" class="btn  btn-sm box-shadow"  onclick="javascript:history.back(-1);" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px; width: 100px; float: right; margin-top: 15%; clear: both"> 返回上一级 </button>
+
 	</div>
-	{% endfor %}
+</div>
+
+</body>
 {% endifequal %}
 
 <!--<hr style="height: 1px; border: none; background-color: #BB8FCE">-->
 
 {% ifequal pageid 2 %}
-	<h3>校内文件</h3>
-	{% for d in docs_s %}
-	<div style="margin-bottom:5px">
-	{% if d.view %}
-	<span class="label label-success">已学</span>
-	{% else %}
-		{% if d.must %}
-		<span class="label label-info">必学</span>
-		{% else %}
-		<span class="label label-default">选学</span>
-		{% endif %}
-	{% endif %}
-	<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+<body style=" background-size:cover; height: 100%; width: 100%; background-repeat:no-repeat; background-attachment:fixed;" background='{% static 'img/filesback.jpg' %}'>
+<div class="row">
+	<div class="col-md-offset-2 col-md-8" style="margin-top: 10%; ">
+		
+		<img style="width: 25%; margin-right: 5%; float: left;" src = '{% static 'img/schoolfiles.jpg' %}'>
+		
+		<div style="float: left">	
+			{% for d in docs_s %}
+			<div style="margin-bottom:5px">
+			{% if d.view %}
+			<span class="label label-success">已学</span>
+			{% else %}
+				{% if d.must %}
+				<span class="label label-info">必学</span>
+				{% else %}
+				<span class="label label-default">选学</span>
+				{% endif %}
+			{% endif %}
+			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+			</div>
+			{% endfor %}
+		</div>
+		<button type="button" class="btn  btn-sm box-shadow"  onclick="javascript:history.back(-1);" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px; width: 100px; float: right; margin-top: 15%; clear: both"> 返回上一级 </button>
+
 	</div>
-	{% endfor %}
+</div>
+
+</body>
 {% endifequal %}
 
 <!--<hr style="height: 1px; border: none; background-color: #BB8FCE">-->
 
 {% ifequal pageid 3 %}
-	<h3>视频</h3>
-	{% for d in docs_v %}
-	<div style="margin-bottom:5px">
-	{% if d.view %}
-	<span class="label label-success">已学</span>
-	{% else %}
-		{% if d.must %}
-		<span class="label label-info">必学</span>
-		{% else %}
-		<span class="label label-default">选学</span>
-		{% endif %}
-	{% endif %}
-	<a url='{{ d.url }}' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+<body style=" background-size:cover; height: 100%; width: 100%; background-repeat:no-repeat; background-attachment:fixed;" background='{% static 'img/filesback.jpg' %}'>
+<div class="row">
+	<div class="col-md-offset-2 col-md-8" style="margin-top: 10%; ">
+		
+		<img style="width: 25%; margin-right: 5%; float: left;" src = '{% static 'img/videofiles.jpg' %}'>
+		
+		<div style="float: left">	
+			{% for d in docs_v %}
+			<div style="margin-bottom:5px">
+			{% if d.view %}
+			<span class="label label-success">已学</span>
+			{% else %}
+				{% if d.must %}
+				<span class="label label-info">必学</span>
+				{% else %}
+				<span class="label label-default">选学</span>
+				{% endif %}
+			{% endif %}
+			<a url='{{ d.url }}' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+			</div>
+			{% endfor %}
+		</div>
+		<button type="button" class="btn  btn-sm box-shadow"  onclick="javascript:history.back(-1);" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px; width: 100px; float: right; margin-top: 15%; clear: both"> 返回上一级 </button>
+
 	</div>
-	{% endfor %}
+</div>
+
+</body>
 {% endifequal %}
 
 
