@@ -58,6 +58,7 @@ def survey_fill(request):
 		return HttpResponse(json.dumps(jdata))
 
 	if op == 'submit':
+		jdata = {}
 		arr = json.loads(request.POST.get('qstring'))
 		score = 0
 		for i in range(len(arr)):
@@ -77,7 +78,8 @@ def survey_fill(request):
 				score += 1
 		astring = json.dumps(arr)
 		answer = Answer.objects.create(username=suser.username, astring=astring, score=100*score//len(arr), create_time=datetime.datetime.now())
-		return HttpResponse('{}')
+		jdata['n_answer'] = len(Answer.objects.all())
+		return HttpResponse(json.dumps(jdata))
 
 	answers = Answer.objects.filter(username=suser.username)
 	if len(answers) > 0:

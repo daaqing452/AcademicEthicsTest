@@ -67,8 +67,8 @@ function submit(){
         data: {'op': 'submit', 'qstring': Qstring},
         success: function(data) {
             var data = JSON.parse(data);
-            alert("提交成功！", 1);
-            // window.location.reload();
+            alert("提交成功！你是第" + data['n_answer'] + '个完成自测的！', 1);
+            //window.location.reload();
         }
     });
 }
