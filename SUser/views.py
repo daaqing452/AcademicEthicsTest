@@ -37,7 +37,6 @@ def index(request):
 		# 判断是否存在
 		susers = SUser.objects.filter(username=username)
 		existed = (len(susers) > 0)
-		# 判断是否是清华账号
 		if not existed:
 			rdata['info'] = '用户名不存在'
 		else:
@@ -73,7 +72,16 @@ def login(request):
     usertype   = info[4].split('=')[1]
     department = info[5].split('=')[1]
     email      = info[6].split('=')[1]
-    return HttpResponse(resp)
+
+    users = User.objects.filter(username=username)
+    if len(users) > 0:
+        user = users[0]
+    else:
+        user = User.objects.create_user(username=username, password=username)
+        suser = SUser.objects.create(uid=user.id, username=username, yhm=yhm, name=name, usertype=usertype, department=department, email=email)
+    user = auth.authenticate(username=username, password=username)
+    auth.login(request, user)
+    return HttpResponseRedirect('/index/')
 
 def show_files(request, pageid=0):
 	rdata, op, suser = Utils.get_request_basis(request)
