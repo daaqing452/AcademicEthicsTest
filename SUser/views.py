@@ -55,7 +55,7 @@ def index(request):
 		else:
 			rdata['login'] = True
 
-	rdata['id_tsinghua_url'] = 'https://id.tsinghua.edu.cn/do/off/ui/auth/login/form/' + APPMD5 + '/0?/login'
+	rdata['id_tsinghua_url'] = 'https://id.tsinghua.edu.cn/do/off/ui/auth/login/form/' + APPMD5 + '/1?/login'
 
 	return render(request, 'index.html', rdata)
 
