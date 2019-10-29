@@ -49,24 +49,11 @@
             <div style="text-align: center;">
                 <h1 style="font-size: 45px; margin-top: 5%; margin-bottom: 5%">学术道德规范自学自测网站</h1>
             </div>
-            <form method='post' enctype='multipart/form-data' style="margin:10px 10px 50px 10px;">
-                {% csrf_token %}
-                
-                <input id='username' type='text' name='username' class="form-control" placeholder="学号" style="width: 60%; margin-left: 20%" />
-                <br />
-                <input id='password' type='password' name='password' class="form-control" placeholder="密码" style="width: 60%; margin-left: 20%"/>
-                <br />
-                
-                <input type="submit" class="btn btn-sm box-shadow" onclick="return checkAndSubmit();" value="登录" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px; float: right;" />
-                
-            </form>
             <a href="{{ id_tsinghua_url }}" >
                 <button class="btn btn-sm box-shadow" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px; float: right; ">
                     使用清华登录接口登录
                 </button>
             </a>
-            
-            <span>{{ info }}</span>
         </div>
     </div>
 </div>

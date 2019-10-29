@@ -23,40 +23,12 @@ APPMD5 = 'b11bc93ee926eff46a7ffc4276bef7df'
 def index(request):
 	rdata, op, suser = Utils.get_request_basis(request)
 	
-	if op == 'get_magic_number':
-		return HttpResponse(json.dumps({'magic_number': Utils.MAGIC_NUMBER}))
-
 	if op == 'logout':
 		auth.logout(request)
 		return HttpResponse('{}');
 
-	username = request.POST.get('username')
-	password = request.POST.get('password')
-	if username is not None and password is not None:
-		password = Utils.uglyDecrypt(password)
-		# 判断是否存在
-		susers = SUser.objects.filter(username=username)
-		existed = (len(susers) > 0)
-		if not existed:
-			rdata['info'] = '用户名不存在'
-		else:
-			# 验证
-			user = auth.authenticate(username=username, password=password)
-			if user is not None:
-				auth.login(request, user)
-				rdata['login'] = True
-				rdata['suser'] = suser = SUser.objects.get(uid=request.user.id)
-				login = True
-			else:
-				rdata['info'] = '密码错误'
-	else:
-		if suser is None:
-			rdata['login'] = False
-		else:
-			rdata['login'] = True
-
+	rdata['login'] = suser is not None
 	rdata['id_tsinghua_url'] = 'https://id.tsinghua.edu.cn/do/off/ui/auth/login/form/' + APPMD5 + '/1?/login'
-
 	return render(request, 'index.html', rdata)
 
 def login(request):
@@ -82,6 +54,34 @@ def login(request):
     user = auth.authenticate(username=username, password=username)
     auth.login(request, user)
     return HttpResponseRedirect('/index/')
+
+def login2(request):
+	rdata, op, suser = Utils.get_request_basis(request)
+	
+	if op == 'get_magic_number':
+		return HttpResponse(json.dumps({'magic_number': Utils.MAGIC_NUMBER}))
+
+	username = request.POST.get('username')
+	password = request.POST.get('password')
+	if username is not None and password is not None:
+		password = Utils.uglyDecrypt(password)
+		# 判断是否存在
+		susers = SUser.objects.filter(username=username)
+		print(susers)
+		if len(susers) == 0:
+			rdata['info'] = '用户名不存在'
+		else:
+			# 验证
+			user = auth.authenticate(username=username, password=password)
+			if user is not None:
+				auth.login(request, user)
+				rdata['login'] = True
+				rdata['suser'] = suser = SUser.objects.get(uid=request.user.id)
+				return HttpResponseRedirect('/index/')
+			else:
+				rdata['info'] = '密码错误'
+
+	return render(request, 'login2.html', rdata)
 
 def show_files(request, pageid=0):
 	rdata, op, suser = Utils.get_request_basis(request)

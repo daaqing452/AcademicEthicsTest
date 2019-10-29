@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <title> 首页 </title>
+</head>
+
+<style type="text/css">
+.box-shadow {
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
+}
+</style>
+            
+
+<body style="text-align:center; background-size:cover; background-size: 100% 100%; background-repeat:no-repeat; background-attachment:fixed;" background='{% static 'img/login.jpg' %}' >
+<div class="row">
+<div class="col-md-offset-3 col-md-6 ">
+    <!-- <div class="panel" style="margin: 100px 0px 0px 0px; border-color: #BB8FCE; border-width: 2px"> -->
+    <div class="panel" style="margin-top: 15%">
+        <div class="panel-body" style="margin: 10px 10px 10px 10px; border:2px solid #6F049C;">
+
+            <div style="text-align: center;">
+                <h1 style="font-size: 45px; margin-top: 5%; margin-bottom: 5%">学术道德规范自学自测网站</h1>
+            </div>
+            <form method='post' enctype='multipart/form-data' style="margin:10px 10px 50px 10px;">
+                {% csrf_token %}
+                
+                <input id='username' type='text' name='username' class="form-control" placeholder="学号" style="width: 60%; margin-left: 20%" />
+                <br />
+                <input id='password' type='password' name='password' class="form-control" placeholder="密码" style="width: 60%; margin-left: 20%"/>
+                <br />
+                
+                <input type="submit" class="btn btn-sm box-shadow" onclick="return checkAndSubmit();" value="登录" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px; float: right;" />
+                
+            </form>
+            <span>{{ info }}</span>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<link href='{% static 'bootstrap/css/bootstrap.min.css' %}' rel="stylesheet">
+<link href="{% static "kindeditor/themes/default/default.css" %}" rel="stylesheet">
+<script src='{% static 'js/jquery-3.1.1.min.js' %}'> </script>
+<script src='{% static 'js/jquery-ui.min.js' %}'> </script> 
+<script src='{% static 'bootstrap/js/bootstrap.min.js' %}'> </script>
+<script src='{% static 'js/login2.js' %}'> </script>
+<script src='{% static 'js/csrf.js' %}'> </script>
+
+</body>
