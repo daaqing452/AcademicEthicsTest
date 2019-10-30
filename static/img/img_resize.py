@@ -1,11 +1,11 @@
 from PIL import Image
 
-im = Image.open('filesback1.jpg')  
+im = Image.open('showback1.jpg')  
 
 
-im1 = im.resize((1440, 720)) 
+im1 = im.resize((1920, 1346)) 
 
-im1.save('filesback.jpg')
+im1.save('showback.jpg')
 
 
 #1920 5292

@@ -17,7 +17,7 @@
 {% if not_exist %}
 <h3>无此用户问卷</h3>
 {% else %}
-<div >
+<div class="col-md-offset-1 col-md-10 ">
     <div class="panel" >
         <div class="panel-body">
             <div style = "background-image:url('{% static 'img/fillback.jpg' %}'); background-size: 100% 100%;">
@@ -25,9 +25,9 @@
                     <h1 style="margin-top: 15%">学术道德规范自测结果</h1>
                 </div>
                 <div class="btn-group" name="my-btn-group" style="width: 100%; margin-bottom: 5%">
-                <button type="button" class="btn btn-lg box-shadow" onclick="window.location.href='/index'" style="float: right; color: #6F049C; background: white; border-radius: 50px 50px 50px 50px; width: 150px;margin-left: 5px; margin-right: 5px;"> 返回首页 </button>
-                <button type="button" class="btn btn-lg box-shadow"  onclick="retest()" style="float: right;color: #6F049C; background: white; border-radius: 50px 50px 50px 50px; width: 150px; margin-left: 5px"> 重新自测 </button>
-                <button type="button" class="btn btn-lg box-shadow" style="float: right; color: #6F049C; background: white; border-radius: 50px 50px 50px 50px; width: 150px;" onclick="print_promise()" style="text-decoration:none; " >打印承诺书</button>
+                <button type="button" class="btn btn-sm box-shadow" onclick="window.location.href='/index'" style="float: right; color: #6F049C; background: white; border-radius: 50px 50px 50px 50px; width: 100px;margin-left: 5px; margin-right: 5px;"> 返回首页 </button>
+                <button type="button" class="btn btn-sm box-shadow"  onclick="retest()" style="float: right;color: #6F049C; background: white; border-radius: 50px 50px 50px 50px; width: 100px; margin-left: 5px"> 重新自测 </button>
+                <button type="button" class="btn btn-sm box-shadow" style="float: right; color: #6F049C; background: white; border-radius: 50px 50px 50px 50px; width: 100px;" onclick="print_promise()" style="text-decoration:none; " >打印承诺书</button>
                 </div>
             </div>
             

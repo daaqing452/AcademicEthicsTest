@@ -80,7 +80,7 @@ function createHtml(q,random_index = 0){
     switch(q.s_type){
         case 1:{
             HTMLContent += "</div>";
-            HTMLContent += "<div style=\"margin-left: 5%; margin-bottom: 5%\"><form>";
+            HTMLContent += "<div style=\"margin-left: 5%; margin-bottom: 10%\"><form>";
             for(var i = 0; i < q.n_option; i ++)
             {
                 var option = q.options[i];
@@ -89,10 +89,10 @@ function createHtml(q,random_index = 0){
                 }
                 else{
                     if((q.right_answer.indexOf(i) > -1) && (page_status == "create")){
-                        HTMLContent += "<div ><input type=\"radio\" name=\"single\" checked=\"true\" > <label class=\"q_item\" onclick=\"textcheck(this)\" style=\"margin-left: 10px;\">"+option.index+". ";
+                        HTMLContent += "<div class=\"col-xs-12\"><input type=\"radio\" name=\"single\" checked=\"true\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" >"+option.index+". ";
                     }
                     else{
-                        HTMLContent += "<div ><input type=\"radio\" name=\"single\" > <label class=\"q_item\" onclick=\"textcheck(this)\" style=\"margin-left: 10px;\">"+option.index+". ";
+                        HTMLContent += "<div class=\"col-xs-12\"><input type=\"radio\" name=\"single\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" >"+option.index+". ";
                     }
                     HTMLContent += option.text;
                     HTMLContent += "</label></div>";
@@ -106,7 +106,7 @@ function createHtml(q,random_index = 0){
         }
         case 2:{
             HTMLContent += "</div>";
-            HTMLContent += "<div style=\"margin-left: 5%; margin-bottom: 5%\"><form>";
+            HTMLContent += "<div style=\"margin-left: 5%; margin-bottom: 10%\"><form>";
             for(var i = 0; i < q.n_option; i ++)
             {
                 var option = q.options[i];
@@ -115,10 +115,10 @@ function createHtml(q,random_index = 0){
                 }
                 else{
                     if((q.right_answer.indexOf(i) > -1) && (page_status == "create")){
-                        HTMLContent += "<div ><input type=\"checkbox\" name=\"single\" checked=\"true\"> <label class=\"q_item\" onclick=\"textcheck(this)\" style=\"margin-left: 10px;\">"+option.index+". ";
+                        HTMLContent += "<div class=\"col-xs-12\"><input type=\"checkbox\" name=\"single\" checked=\"true\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" >"+option.index+". ";
                     }
                     else{
-                        HTMLContent += "<div><input type=\"checkbox\" name=\"single\"> <label class=\"q_item\" onclick=\"textcheck(this)\" style=\"margin-left: 10px;\"> "+option.index+". ";
+                        HTMLContent += "<div class=\"col-xs-12\"><input type=\"checkbox\" name=\"single\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" > "+option.index+". ";
                     }
                     HTMLContent += option.text;
                     HTMLContent += "</label></div>";
