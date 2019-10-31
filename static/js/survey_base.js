@@ -80,19 +80,30 @@ function createHtml(q,random_index = 0){
     switch(q.s_type){
         case 1:{
             HTMLContent += "</div>";
-            HTMLContent += "<div style=\"margin-left: 5%; margin-bottom: 10%\"><form>";
+            HTMLContent += "<div style=\"margin-left: 5%;  height: 100%; margin-bottom: 10px\"><form>";
             for(var i = 0; i < q.n_option; i ++)
             {
+
                 var option = q.options[i];
                 if(page_status == "report"){
                     HTMLContent += "<p class=\"q_item\"> "+option.index+". " + option.text + "</p>";
                 }
                 else{
                     if((q.right_answer.indexOf(i) > -1) && (page_status == "create")){
-                        HTMLContent += "<div class=\"col-xs-12\"><input type=\"radio\" name=\"single\" checked=\"true\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" >"+option.index+". ";
+                        if(i == q.n_option - 1){
+                            HTMLContent += "<div class=\"col-xs-12\" style = \"margin-bottom: 2%\"><input type=\"radio\" name=\"single\" checked=\"true\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" >"+option.index+". ";
+                        }
+                        else{
+                            HTMLContent += "<div class=\"col-xs-12\"><input type=\"radio\" name=\"single\" checked=\"true\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" >"+option.index+". ";
+                        }
                     }
                     else{
-                        HTMLContent += "<div class=\"col-xs-12\"><input type=\"radio\" name=\"single\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" >"+option.index+". ";
+                        if(i == q.n_option - 1){
+                            HTMLContent += "<div class=\"col-xs-12\" style = \"margin-bottom: 2%\"><input type=\"radio\" name=\"single\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" >"+option.index+". ";
+                        }
+                        else{
+                            HTMLContent += "<div class=\"col-xs-12\"><input type=\"radio\" name=\"single\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" >"+option.index+". ";
+                        }
                     }
                     HTMLContent += option.text;
                     HTMLContent += "</label></div>";
@@ -106,7 +117,7 @@ function createHtml(q,random_index = 0){
         }
         case 2:{
             HTMLContent += "</div>";
-            HTMLContent += "<div style=\"margin-left: 5%; margin-bottom: 10%\"><form>";
+            HTMLContent += "<div style=\"margin-left: 5%; margin-bottom: 10px\"><form>";
             for(var i = 0; i < q.n_option; i ++)
             {
                 var option = q.options[i];
@@ -115,10 +126,20 @@ function createHtml(q,random_index = 0){
                 }
                 else{
                     if((q.right_answer.indexOf(i) > -1) && (page_status == "create")){
-                        HTMLContent += "<div class=\"col-xs-12\"><input type=\"checkbox\" name=\"single\" checked=\"true\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" >"+option.index+". ";
+                        if(i == q.n_option - 1){
+                            HTMLContent += "<div class=\"col-xs-12\" style = \"margin-bottom: 2%\"><input type=\"checkbox\" name=\"single\" checked=\"true\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" >"+option.index+". ";
+                        }
+                        else{
+                            HTMLContent += "<div class=\"col-xs-12\"><input type=\"checkbox\" name=\"single\" checked=\"true\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" >"+option.index+". ";
+                        }
                     }
                     else{
-                        HTMLContent += "<div class=\"col-xs-12\"><input type=\"checkbox\" name=\"single\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" > "+option.index+". ";
+                        if(i == q.n_option - 1){
+                            HTMLContent += "<div class=\"col-xs-12\" style = \"margin-bottom: 2%\"><input type=\"checkbox\" name=\"single\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" > "+option.index+". ";
+                        }
+                        else{
+                            HTMLContent += "<div class=\"col-xs-12\"><input type=\"checkbox\" name=\"single\" class=\"col-xs-1\" style = \"margin-left: -1em; margin-right: -5.2em;\"> <label class=\"q_item col-xs-11\" onclick=\"textcheck(this)\" > "+option.index+". ";
+                        }
                     }
                     HTMLContent += option.text;
                     HTMLContent += "</label></div>";
