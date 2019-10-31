@@ -69,7 +69,7 @@ function getindex(){
 }
 
 function createHtml(q,random_index = 0){
-    var HTMLContent = "<td><div class=\"box-shadow\" style=\"margin-left: 20%; margin-right: 20%; margin-bottom: 2%; overflow: hidden;\">";
+    var HTMLContent = "<td><div class=\"box-shadow\" style=\"margin-left: 10%; margin-right: 10%; margin-bottom: 2%; overflow: hidden;\">";
     var index = q.index;
     if(page_status == "create"){
         HTMLContent += "<div style=\"margin-bottom: 10px; margin-left: 5%; margin-top: 5%\"><font size=\"4\">"+(index + 1).toString() + "." + q.title_html+"</font>";
