@@ -118,7 +118,7 @@ def survey_report(request, username=''):
 	if op == 'test_promise':
 		jdata = {'res': 'no'}
 		print(answers[0].score)
-		if len(answers) > 0 and answers[0].score > 89.9999:
+		if len(answers) > 0 and answers[0].score > 99.9999:
 			jdata['res'] = 'yes'
 		return HttpResponse(json.dumps(jdata))
 	
