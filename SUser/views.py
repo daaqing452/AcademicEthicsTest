@@ -102,9 +102,9 @@ def show_files(request, pageid=0):
 		return HttpResponse('{}')
 	
 	rdata['pageid'] = int(pageid)
-	rdata['docs_n'] = [{'doc': doc, 'view': doc in study_list, 'must': doc in Utils.study_must} for doc in Utils.study_n]
-	rdata['docs_s'] = [{'doc': doc, 'view': doc in study_list, 'must': doc in Utils.study_must} for doc in Utils.study_s]
-	rdata['docs_v'] = [{'doc': doc, 'view': doc in study_list, 'must': doc in Utils.study_must, 'url': Utils.study_v[doc]} for doc in Utils.study_v]
+	rdata['docs_n'] = [{'doc': doc[0], 'doc_en': doc[1], 'view': doc[0] in study_list, 'must': doc[0] in Utils.study_must} for doc in Utils.study_n]
+	rdata['docs_s'] = [{'doc': doc[0], 'doc_en': doc[1], 'view': doc[0] in study_list, 'must': doc[0] in Utils.study_must} for doc in Utils.study_s]
+	rdata['docs_v'] = [{'doc': doc, 'doc_en': Utils.study_v[doc][1], 'view': doc in study_list, 'must': doc in Utils.study_must, 'url': Utils.study_v[doc][0]} for doc in Utils.study_v]
 
 	return render(request, 'show_files.html', rdata)
 
