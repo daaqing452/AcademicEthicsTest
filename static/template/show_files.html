@@ -121,7 +121,7 @@
 				<span class="label label-default">选学 optional</span>
 				{% endif %}
 			{% endif %}
-			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }} <br> {{ d.doc_en }}</a>
+			<a url='{{ d.url }}' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }} <br> {{ d.doc_en }}</a>
 			</div>
 			{% endfor %}
 		</div>
