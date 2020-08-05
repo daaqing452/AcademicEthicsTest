@@ -156,8 +156,8 @@ function createHtml(q,random_index = 0){
     }
     if(page_status == "create"){
         HTMLContent += "<div style=\"margin-left: 5%;\"><font size=\"3\">题目解析: " + q.jiexi_html + "</div>"
-    	HTMLContent += "<br><div style=\"margin-left: 5%;\"><button class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#myModal2\" onclick=\"addQAfter(this)\">插入</button><button class=\"btn btn-danger btn-sm\" onclick=\"deleteQ(this)\">删除</button><button data-toggle=\"modal\" data-target=\"#myModal\" class=\"btn btn-warning btn-sm\" onclick=\"modifyQ(this)\">修改</button>";
-    	HTMLContent += "<button class=\"btn btn-success btn-sm\" onclick=\"moveQup(this)\">上移</button><button class=\"btn btn-success btn-sm\" onclick=\"moveQdown(this)\">下移</button></div><hr>";
+    	HTMLContent += "<br><div style=\"margin-left: 5%;\"><button class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#myModal2\" onclick=\"addQAfter(this)\">插入 <br> Insert</button><button class=\"btn btn-danger btn-sm\" onclick=\"deleteQ(this)\">删除 <br> Delete </button><button data-toggle=\"modal\" data-target=\"#myModal\" class=\"btn btn-warning btn-sm\" onclick=\"modifyQ(this)\">修改 <br> Modify</button>";
+    	HTMLContent += "<button class=\"btn btn-success btn-sm\" onclick=\"moveQup(this)\">上移 <br> Move up</button><button class=\"btn btn-success btn-sm\" onclick=\"moveQdown(this)\">下移 <br> Move down</button></div><hr>";
     }
     HTMLContent += "</td>";
     return HTMLContent;
