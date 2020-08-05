@@ -39,23 +39,23 @@
 {% ifequal pageid 1 %}
 <body style=" background-size:cover; height: 100%; width: 100%; background-repeat:no-repeat; background-attachment:fixed;" background='{% static 'img/filesback.jpg' %}'>
 <div class="row">
-	<div class="col-md-offset-1 col-md-10" style="margin-top: 10%; ">
+	<div class="col-md-12" style="margin-top: 5%;">
 		
-		<img style="width: 25%; margin-right: 5%; float: left;" src = '{% static 'img/nationfiles.png' %}'>
+		<img style="width: 20%; margin-right: 5%; float: left;" src = '{% static 'img/nationfiles.png' %}'>
 		
 		<div style="float: left">
 			{% for d in docs_n %}
 			<div style="margin-bottom:5px">
 			{% if d.view %}
-			<span class="label label-success">已学 Learned</span>
+			<span class="label label-success">已学  Learned</span>
 			{% else %}
 				{% if d.must %}
-				<span class="label label-info">必学 </span>
+				<span class="label label-info">必学 compulsory </span>
 				{% else %}
-				<span class="label label-default">选学</span>
+				<span class="label label-default">选学 optional</span>
 				{% endif %}
 			{% endif %}
-			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }} <br> {{ d.doc_en }}</a>
 			</div>
 			{% endfor %}
 		</div>
@@ -72,23 +72,23 @@
 {% ifequal pageid 2 %}
 <body style=" background-size:cover; height: 100%; width: 100%; background-repeat:no-repeat; background-attachment:fixed;" background='{% static 'img/filesback.jpg' %}'>
 <div class="row">
-	<div class="col-md-offset-1 col-md-10" style="margin-top: 10%; ">
+	<div class="col-md-12" style="margin-top: 5%; ">
 		
-		<img style="width: 25%; margin-right: 5%; float: left;" src = '{% static 'img/schoolfiles.png' %}'>
+		<img style="width: 20%; margin-right: 5%; float: left;" src = '{% static 'img/schoolfiles.png' %}'>
 		
 		<div style="float: left">	
 			{% for d in docs_s %}
 			<div style="margin-bottom:5px">
 			{% if d.view %}
-			<span class="label label-success">已学 Learned</span>
+			<span class="label label-success">已学  Learned</span>
 			{% else %}
 				{% if d.must %}
-				<span class="label label-info">必学</span>
+				<span class="label label-info">必学 compulsory </span>
 				{% else %}
-				<span class="label label-default">选学</span>
+				<span class="label label-default">选学 optional</span>
 				{% endif %}
 			{% endif %}
-			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }} <br> {{ d.doc_en }}</a>
 			</div>
 			{% endfor %}
 		</div>
@@ -105,23 +105,23 @@
 {% ifequal pageid 3 %}
 <body style=" background-size:cover; height: 100%; width: 100%; background-repeat:no-repeat; background-attachment:fixed;" background='{% static 'img/filesback.jpg' %}'>
 <div class="row">
-	<div class="col-md-offset-1 col-md-10" style="margin-top: 10%; ">
+	<div class="col-md-12" style="margin-top: 5%; ">
 		
-		<img style="width: 25%; margin-right: 5%; float: left;" src = '{% static 'img/videofiles.png' %}'>
+		<img style="width: 20%; margin-right: 5%; float: left;" src = '{% static 'img/videofiles.png' %}'>
 		
 		<div style="float: left">	
 			{% for d in docs_v %}
 			<div style="margin-bottom:5px">
 			{% if d.view %}
-			<span class="label label-success">已学 Learned</span>
+			<span class="label label-success">已学  Learned</span>
 			{% else %}
 				{% if d.must %}
-				<span class="label label-info">必学</span>
+				<span class="label label-info">必学 compulsory </span>
 				{% else %}
-				<span class="label label-default">选学</span>
+				<span class="label label-default">选学 optional</span>
 				{% endif %}
 			{% endif %}
-			<a url='{{ d.url }}' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }} <br> {{ d.doc_en }}</a>
 			</div>
 			{% endfor %}
 		</div>

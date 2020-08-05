@@ -19,7 +19,7 @@ study_s = [
 	('清华大学学术道德规范', 'Academic Ethics of Tsinghua University'),
 	('清华大学预防与处理学术不端行为办法', 'Tsinghua University Measures for Prevention and Handling Academic Misconduct'),
 	('学术道德与规范手册', 'Manual of Academic Ethics and Norms'),
-	('学术道德规范测试题（2019版）', 'Academic Integrity Test (2019)'
+	('学术道德规范测试题（2019版）', 'Academic Integrity Test (2019)')
 ]
 study_v = {
 	'清华《学术之道》': ('http://www.xuetangx.com/courses/course-v1:TsinghuaX+10690012+2019_T1/about', 'Academic Way of Tsinghua University'),
