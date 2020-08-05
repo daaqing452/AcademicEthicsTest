@@ -14,44 +14,45 @@
             {% if login %}
 <body style="text-align:center; background-size:cover; height: 100%; width: 100%; background-repeat:no-repeat; background-attachment:fixed;" background='{% static 'img/indexback.jpg' %}' >
 <div class="row">
-<div class="col-md-offset-3 col-md-6 ">
+<div class="col-md-offset-2 col-md-8 " >
     <!-- <div class="panel" style="margin: 100px 0px 0px 0px; border-color: #BB8FCE; border-width: 2px"> -->
-    <div class="panel" >
-        <div class="panel-body">
+    <div class="panel" style="background-color:rgba(0,0,0,0)">
+        <div class="panel-body" >
             <div style="text-align: center;">
-                <h1 style="font-size: 45px; margin-top: 10%;">学术道德规范自学自测网站</h1>
+                <h1 style="font-size: 35px; ">学术道德规范自学自测网站 <br> Academic ethics self-studying and self-testing website</h1>
             </div>
             <br/>
                 <br/>
-                <button class="btn btn-lg" onclick="window.location.href='/show_files/'" style="width: 40%; background-color: #e2c3ef; ">学术道德规范自学</button><br/>
+                <button class="btn btn-lg" onclick="window.location.href='/show_files/'" style="width: 40%; background-color: #e2c3ef; ">学术道德规范自学 <br> Self-studying of academic ethics</button><br/>
                 <br/>
-                <button class="btn btn-lg" onclick="window.location.href='/survey_fill/'" style="width: 40%; background-color: #e2c3ef; ">学术道德规范自测</button><br/>
+                <button class="btn btn-lg" onclick="window.location.href='/survey_fill/'" style="width: 40%; background-color: #e2c3ef; ">学术道德规范自测 <br> Self-testing of academic ethics</button><br/>
                 <br/>
                 {% if suser.admin %}
-                <button class="btn btn-lg" onclick="window.location.href='/survey_create/'" style="width: 40%; background-color: #e2c3ef; ">添加题目</button><br/>
+                <button class="btn btn-lg" onclick="window.location.href='/survey_create/'" style="width: 40%; background-color: #e2c3ef; ">添加题目 <br> Adding questions</button><br/>
                 <br/>
-                <button class="btn btn-lg" onclick="window.location.href='/backend/'" style="width: 40%; background-color: #e2c3ef; ">后台管理</button><br/>
+                <button class="btn btn-lg" onclick="window.location.href='/backend/'" style="width: 40%; background-color: #e2c3ef; ">后台管理 <br> Backstage management</button><br/>
                 <br/>
                 {% endif %}
-                <button class="btn btn-lg" onclick='logout()' style="width: 40%; background-color: #e2c3ef; ">登出系统</button>
+                <button class="btn btn-lg" onclick='logout()' style="width: 40%; background-color: #e2c3ef; ">登出系统 <br> Log out</button>
         </div>
     </div>
 </div>
 </div>
+
             {% else %}
 <body style="text-align:center; background-size:cover; background-size: 100% 100%; background-repeat:no-repeat; background-attachment:fixed;" background='{% static 'img/login.jpg' %}' >
 <div class="row">
-<div class="col-md-offset-3 col-md-6 ">
+<div class="col-md-offset-2 col-md-8 ">
     <!-- <div class="panel" style="margin: 100px 0px 0px 0px; border-color: #BB8FCE; border-width: 2px"> -->
     <div class="panel" style="margin-top: 15%">
         <div class="panel-body" style="margin: 10px 10px 10px 10px; border:2px solid #6F049C;">
 
             <div style="text-align: center;">
-                <h1 style="font-size: 45px; margin-top: 5%; margin-bottom: 5%">学术道德规范自学自测网站</h1>
+                <h1 style="font-size: 35px; margin-top: 5%; margin-bottom: 5%">学术道德规范自学自测网站 <br> Academic ethics self-studying and self-testing website</h1>
             </div>
             <a href="{{ id_tsinghua_url }}" >
                 <button class="btn btn-sm box-shadow" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px; float: right; ">
-                    使用清华登录接口登录
+                   使用清华登录接口登录 <br> Use Tsinghua Login interface to log in
                 </button>
             </a>
         </div>
