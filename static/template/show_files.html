@@ -44,20 +44,26 @@
 		<img style="width: 20%; margin-right: 5%; float: left;" src = '{% static 'img/nationfiles.png' %}'>
 		
 		<div style="float: left">
+			中文材料区 Regulations in Chinese
 			{% for d in docs_n %}
 			<div style="margin-bottom:5px">
 			{% if d.view %}
-			<span class="label label-success">已学  Learned</span>
+			<span class="label label-success">已学</span>
 			{% else %}
 				{% if d.must %}
-				<span class="label label-info">必学 compulsory </span>
+				<span class="label label-info">必学</span>
 				{% else %}
-				<span class="label label-default">选学 optional</span>
+				<span class="label label-default">选学</span>
 				{% endif %}
 			{% endif %}
 			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }} <br> {{ d.doc_en }}</a>
 			</div>
 			{% endfor %}
+
+			<br/><br/><br/>
+			英文材料区 Regulations in English
+			<br/>
+			In Progress
 		</div>
 		<button type="button" class="btn  btn-sm box-shadow"  onclick="javascript:history.back(-1);" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px; float: right; margin-top: 15%; clear: both"> 返回上一级 <br> Back to the previous page </button>
 
@@ -127,21 +133,27 @@
 		
 		<img style="width: 20%; margin-right: 5%; float: left;" src = '{% static 'img/videofiles.png' %}'>
 		
-		<div style="float: left">	
+		<div style="float: left">
+			中文材料区 Regulations in Chinese
 			{% for d in docs_v %}
 			<div style="margin-bottom:5px">
 			{% if d.view %}
-			<span class="label label-success">已学  Learned</span>
+			<span class="label label-success">已学</span>
 			{% else %}
 				{% if d.must %}
-				<span class="label label-info">必学 compulsory </span>
+				<span class="label label-info">必学</span>
 				{% else %}
-				<span class="label label-default">选学 optional</span>
+				<span class="label label-default">选学</span>
 				{% endif %}
 			{% endif %}
 			<a url='{{ d.url }}' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }} <br> {{ d.doc_en }}</a>
 			</div>
 			{% endfor %}
+
+			<br/><br/><br/>
+			英文材料区 Regulations in English
+			<br/>
+			In Progress
 		</div>
 		<button type="button" class="btn  btn-sm box-shadow"  onclick="javascript:history.back(-1);" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px;  float: right; margin-top: 15%; clear: both"> 返回上一级 <br> Back to the previous page </button>
 
