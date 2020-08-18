@@ -13,7 +13,8 @@ study_must = [
 ]
 
 study_must_en = [
-
+	'Regulations on Academic Ethics at Tsinghua University',
+	'Measures for the Prevention and Regulations of Academic Misconduct',
 ]
 
 study_n = [
@@ -30,8 +31,8 @@ study_s = [
 	('清华大学预防与处理学术不端行为办法', 'Tsinghua University Measures for Prevention and Handling Academic Misconduct'),
 	('学术道德与规范手册', 'Manual of Academic Ethics and Norms'),
 	('学术道德规范测试题（2019版）', 'Academic Integrity Test (2019)'),
-	('研究生新生必读手册，1学业篇，Part 05 学术规范与学术道德', ''),
-	('研究生新生必读手册，3安全与纪律篇，Part 02 常见违纪行为的种类，学术不端、违反学习纪律的行为', ''),
+	('研究生新生必读手册，1学业篇，Part 05 学术规范与学术道德', 'Orientation Handbook for New Postgraduate Students, Section 1 Study, Part 05 Academic Norms and Academic Ethics'),
+	('研究生新生必读手册，3安全与纪律篇，Part 02 常见违纪行为的种类，学术不端、违反学习纪律的行为', 'Orientation Handbook for New Postgraduate Students, 3 Safety and Discipline, Part 02 Common Types of Misconduct, Academic Misconduct and Violations of the Study Disciplines'),
 ]
 study_v = {
 	'清华《学术之道》': ('http://www.xuetangx.com/courses/course-v1:TsinghuaX+10690012+2019_T1/about', 'Academic Way of Tsinghua University'),

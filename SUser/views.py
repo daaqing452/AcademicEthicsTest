@@ -90,23 +90,28 @@ def show_files(request, pageid=0):
 		return render(request, 'permission_denied.html')
 
 	study_list = json.loads(suser.study_list)
+	foreigner = re.match('\d{5}8\d{4}', suser.username) is not None
 
 	if op == 'view':
 		filename = request.POST.get('filename')
 		if not filename in study_list:
 			study_list.append(filename)
 		study_finish = True
-		for doc in Utils.study_must:
+
+		if foreigner:
+			study_must_list = Utils.study_must_en
+		else:
+			study_must_list = Utils.study_must
+
+		for doc in study_must_list:
 			if not doc in study_list:
 				study_finish = False
 		SUser.objects.filter(id=suser.id).update(study_list=json.dumps(study_list), study_finish=study_finish)
 		return HttpResponse('{}')
-	
-	foreigner = re.match('\d{4}08\d{4}', suser.username) is not None
 
 	rdata['pageid'] = int(pageid)
-	rdata['docs_n'] = [{'doc': doc[0], 'doc_en': doc[1], 'view': doc[0] in study_list, 'must': doc[0] in Utils.study_must} for doc in Utils.study_n]
-	rdata['docs_s'] = [{'doc': doc[0], 'doc_en': doc[1], 'view': doc[0] in study_list, 'must': doc[0] in Utils.study_must} for doc in Utils.study_s]
+	rdata['docs_n'] = [{'doc': doc[0], 'doc_en': doc[1], 'view': doc[0] in study_list, 'must': (doc[0] in Utils.study_must) and (not foreigner)} for doc in Utils.study_n]
+	rdata['docs_s'] = [{'doc': doc[0], 'doc_en': doc[1], 'view': doc[0] in study_list, 'must': (doc[0] in Utils.study_must) and (not foreigner)} for doc in Utils.study_s]
 	rdata['docs_v'] = [{'doc': doc, 'doc_en': Utils.study_v[doc][1], 'view': doc in study_list, 'must': (doc in Utils.study_must) and (not foreigner), 'url': Utils.study_v[doc][0]} for doc in Utils.study_v]
 	rdata['docs_en'] = [{'doc': doc, 'view': doc in study_list, 'must': (doc in Utils.study_must_en) and (foreigner)} for doc in Utils.study_en]
 
