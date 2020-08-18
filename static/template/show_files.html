@@ -76,8 +76,26 @@
 		
 		<img style="width: 20%; margin-right: 5%; float: left;" src = '{% static 'img/schoolfiles.png' %}'>
 		
-		<div style="float: left">	
+		<div style="float: left">
+			中文材料区
 			{% for d in docs_s %}
+			<div style="margin-bottom:5px">
+			{% if d.view %}
+			<span class="label label-success">已学  Learned</span>
+			{% else %}
+				{% if d.must %}
+				<span class="label label-info">必学 compulsory </span>
+				{% else %}
+				<span class="label label-default">选学 optional</span>
+				{% endif %}
+			{% endif %}
+			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }} <br> {{ d.doc_en }}</a>
+			</div>
+			{% endfor %}
+			
+			<br/><br/><br/>
+			英文材料区
+			{% for d in docs_en %}
 			<div style="margin-bottom:5px">
 			{% if d.view %}
 			<span class="label label-success">已学  Learned</span>

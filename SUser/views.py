@@ -14,6 +14,7 @@ import SUser.utils as Utils
 import json
 import os
 import time
+import re
 from urllib.request import urlopen
 
 
@@ -101,10 +102,13 @@ def show_files(request, pageid=0):
 		SUser.objects.filter(id=suser.id).update(study_list=json.dumps(study_list), study_finish=study_finish)
 		return HttpResponse('{}')
 	
+	foreigner = re.match('\d{4}08\d{4}', suser.username) is not None
+
 	rdata['pageid'] = int(pageid)
 	rdata['docs_n'] = [{'doc': doc[0], 'doc_en': doc[1], 'view': doc[0] in study_list, 'must': doc[0] in Utils.study_must} for doc in Utils.study_n]
 	rdata['docs_s'] = [{'doc': doc[0], 'doc_en': doc[1], 'view': doc[0] in study_list, 'must': doc[0] in Utils.study_must} for doc in Utils.study_s]
-	rdata['docs_v'] = [{'doc': doc, 'doc_en': Utils.study_v[doc][1], 'view': doc in study_list, 'must': doc in Utils.study_must, 'url': Utils.study_v[doc][0]} for doc in Utils.study_v]
+	rdata['docs_v'] = [{'doc': doc, 'doc_en': Utils.study_v[doc][1], 'view': doc in study_list, 'must': (doc in Utils.study_must) and (not foreigner), 'url': Utils.study_v[doc][0]} for doc in Utils.study_v]
+	rdata['docs_en'] = [{'doc': doc, 'view': doc in study_list, 'must': (doc in Utils.study_must_en) and (foreigner)} for doc in Utils.study_en]
 
 	return render(request, 'show_files.html', rdata)
 

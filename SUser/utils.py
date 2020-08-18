@@ -5,7 +5,17 @@ from Survey.models import *
 
 MAGIC_NUMBER = 1239874561
 
-study_must = ['高等学校预防与处理学术不端行为办法', '普通高等学校学生管理规定', '清华大学学术道德规范', '清华大学预防与处理学术不端行为办法', ]
+study_must = [
+	'高等学校预防与处理学术不端行为办法',
+	'普通高等学校学生管理规定',
+	'清华大学学术道德规范', 
+	'清华大学预防与处理学术不端行为办法',
+]
+
+study_must_en = [
+
+]
+
 study_n = [
 	('高等学校预防与处理学术不端行为办法', 'Preventive Academic Misconduct Regulations for Universities and Colleges'), 
 	('普通高等学校学生管理规定', 'Regulations on Student Management in Higher education institutions'),
@@ -19,12 +29,21 @@ study_s = [
 	('清华大学学术道德规范', 'Academic Ethics of Tsinghua University'),
 	('清华大学预防与处理学术不端行为办法', 'Tsinghua University Measures for Prevention and Handling Academic Misconduct'),
 	('学术道德与规范手册', 'Manual of Academic Ethics and Norms'),
-	('学术道德规范测试题（2019版）', 'Academic Integrity Test (2019)')
+	('学术道德规范测试题（2019版）', 'Academic Integrity Test (2019)'),
+	('研究生新生必读手册，1学业篇，Part 05 学术规范与学术道德', ''),
+	('研究生新生必读手册，3安全与纪律篇，Part 02 常见违纪行为的种类，学术不端、违反学习纪律的行为', ''),
 ]
 study_v = {
 	'清华《学术之道》': ('http://www.xuetangx.com/courses/course-v1:TsinghuaX+10690012+2019_T1/about', 'Academic Way of Tsinghua University'),
 	'清华《研究生学术与职业素养讲座》': ('http://www.xuetangx.com/courses/course-v1:TsinghuaX+Thu02016001+2016_T1/about', 'Postgraduate Academic and Professional Quality Lecture of Tsinghua University')
 }
+study_en = [
+	'Commitment of Tsinghua Postgraduate Students to Comply with Regulations and Academic Norms',
+	'Regulations on Academic Ethics at Tsinghua University',
+	'Measures for the Prevention and Regulations of Academic Misconduct',
+	'Orientation Handbook for New Postgraduate Students, Section 1 Study, Part 05 Academic Norms and Academic Ethics',
+	'Orientation Handbook for New Postgraduate Students, 3 Safety and Discipline, Part 02 Common Types of Misconduct, Academic Misconduct and Violations of the Study Disciplines',
+]
 # study_v = {'北师大印波老师《科研伦理与学术规范》': 'http://www.xuetangx.com/courses/course-v1:BNU+2017053101X+2019_T1/about', '清华《学术之道》': 'http://www.xuetangx.com/courses/course-v1:TsinghuaX+10690012+2019_T1/about', '清华《研究生学术与职业素养讲座》': 'http://www.xuetangx.com/courses/course-v1:TsinghuaX+Thu02016001+2016_T1/about'}
 
 def uglyDecrypt(s):
