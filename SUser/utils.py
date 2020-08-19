@@ -23,20 +23,20 @@ study_n = [
 	('教育部办公厅关于进一步规范和加强研究生培养管理的通知', 'Notice from the Ministry of Education on Further Standardizing and Strengthening Management of Postgraduate Cultivating'),
 	('高等学校哲学社会科学研究学术规范', 'Academic Norms for Research in Philosophy and Social Science in Higher Education'),
 	('关于进一步加强科研诚信建设的若干意见', 'Opinions on Further Strengthening the Construction of Scientific Research Integrity'),
-	('关于进一步弘扬科学家精神加强作风和学风建设的意见', 'Opinions on Further Promoting the Spirit of Scientists and Strengthening the Construction of Work and Study Style'),
-	('国家自然科学基金委员会监督委员会关于加强国家自然科学基金工作中科学道德建设的若干意见', 'Opinions from the Supervision Committee of the National Natural Science Foundation of China on Strengthening the Construction of Scientific')
+	('关于进一步弘扬科学家精神加强作风和学风建设的意见', 'Opinions on Further Promoting Scientific Spirit and Strengthening the Ethos of Work and Study'),
+	('国家自然科学基金委员会监督委员会关于加强国家自然科学基金工作中科学道德建设的若干意见', 'Opinions from the Supervision Committee of the National Natural Science Foundation of China on Strengthening Scientific Ethics in Processing the National Natural Science Funds')
 ]
 study_s = [
-	('清华大学学术道德规范', 'Academic Ethics of Tsinghua University'),
-	('清华大学预防与处理学术不端行为办法', 'Tsinghua University Measures for Prevention and Handling Academic Misconduct'),
+	('清华大学学术道德规范', 'Regulations on Academic Ethics at Tsinghua University'),
+	('清华大学预防与处理学术不端行为办法', 'Measures for the Prevention and Regulations of Academic Misconduct at Tsinghua University'),
 	('学术道德与规范手册', 'Manual of Academic Ethics and Norms'),
 	('学术道德规范测试题（2019版）', 'Academic Integrity Test (2019)'),
 	('研究生新生必读手册，1学业篇，Part 05 学术规范与学术道德', 'Orientation Handbook for New Postgraduate Students, Section 1 Study, Part 05 Academic Norms and Academic Ethics'),
 	('研究生新生必读手册，3安全与纪律篇，Part 02 常见违纪行为的种类，学术不端、违反学习纪律的行为', 'Orientation Handbook for New Postgraduate Students, 3 Safety and Discipline, Part 02 Common Types of Misconduct, Academic Misconduct and Violations of the Study Disciplines'),
 ]
 study_v = {
-	'清华《学术之道》': ('http://www.xuetangx.com/courses/course-v1:TsinghuaX+10690012+2019_T1/about', 'Academic Way of Tsinghua University'),
-	'清华《研究生学术与职业素养讲座》': ('http://www.xuetangx.com/courses/course-v1:TsinghuaX+Thu02016001+2016_T1/about', 'Postgraduate Academic and Professional Quality Lecture of Tsinghua University')
+	'清华《学术之道》': ('http://www.xuetangx.com/courses/course-v1:TsinghuaX+10690012+2019_T1/about', 'Lectures on the Principles of Academic Research (Tsinghua University)'),
+	'清华《研究生学术与职业素养讲座》': ('http://www.xuetangx.com/courses/course-v1:TsinghuaX+Thu02016001+2016_T1/about', 'Lectures on Postgraduate Academic and Professional Development (Tsinghua University)')
 }
 study_en = [
 	'Commitment of Tsinghua Postgraduate Students to Comply with Regulations and Academic Norms',
