@@ -18,7 +18,7 @@
 <div class="row">
 <div class="col-md-offset-2 col-md-8 ">
 		<div style="text-align: center; margin-top: 10%">
-            <h1 style="color: white; font-size: 45px;">学术道德规范自学 <br> Self-studying of academic ethics</h1>
+            <h1 style="color: white; font-size: 45px;">学术道德规范自学 <br> Academic Ethics Self-learning</h1>
         </div>
 		<div class="btn-group" name="my-btn-group" style="width: 100%; overflow: hidden; text-align: center;">
         <div style="margin-top: 10%">
@@ -29,7 +29,7 @@
 		<!-- <a href='/show_files/1/'>国家文件</a><br/>
 		<a href='/show_files/2/'>校内文件</a><br/>
 		<a href='/show_files/3/'>视频</a><br/> -->
-		<button type="button" class="btn  btn-sm"  onclick="window.location.href='/index'" style="color: #6F049C; border-radius: 50px 50px 50px 50px;  float: right; background: white; margin-top: 15%;"> 返回上一级 <br> Back to the previous page </button>
+		<button type="button" class="btn  btn-sm"  onclick="window.location.href='/index'" style="color: #6F049C; border-radius: 50px 50px 50px 50px;  float: right; background: white; margin-top: 15%;"> 返回上一级 <br> Return </button>
         </div>
 </div>
 </div>
@@ -40,14 +40,16 @@
 <body style=" background-size:cover; height: 100%; width: 100%; background-repeat:no-repeat; background-attachment:fixed;" background='{% static 'img/filesback.jpg' %}'>
 <div class="row">
 	<div class="col-md-12" style="margin-top: 5%;">
-		
-		<img style="width: 20%; margin-right: 5%; float: left;" src = '{% static 'img/nationfiles.png' %}'>
-		
+		<div class="col-md-2">
+		<img style="width: 100%; margin-right: 5%; float: left;" src = '{% static 'img/nationfiles.png' %}'>
+		</div>
+
+		<div class="col-md-10">
 		<div style="float: left">
 			{% for d in docs_n %}
 			<div style="margin-bottom:5px">
 			{% if d.view %}
-			<span class="label label-success">已学  Learned</span>
+			<span class="label label-success">已学 learning complete</span>
 			{% else %}
 				{% if d.must %}
 				<span class="label label-info">必学 compulsory </span>
@@ -59,7 +61,8 @@
 			</div>
 			{% endfor %}
 		</div>
-		<button type="button" class="btn  btn-sm box-shadow"  onclick="javascript:history.back(-1);" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px; float: right; margin-top: 15%; clear: both"> 返回上一级 <br> Back to the previous page </button>
+		</div>
+		<button type="button" class="btn  btn-sm box-shadow"  onclick="javascript:history.back(-1);" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px; float: right; margin-top: 5%; margin-right: 5%; clear: both"> 返回上一级 <br> Return </button>
 
 	</div>
 </div>
@@ -73,44 +76,47 @@
 <body style=" background-size:cover; height: 100%; width: 100%; background-repeat:no-repeat; background-attachment:fixed;" background='{% static 'img/filesback.jpg' %}'>
 <div class="row">
 	<div class="col-md-12" style="margin-top: 5%; ">
+		<div class="col-md-2">
+		<img style="width:100%; margin-right: 5%; float: left;" src = '{% static 'img/schoolfiles.png' %}'>
+		</div>
 		
-		<img style="width: 20%; margin-right: 5%; float: left;" src = '{% static 'img/schoolfiles.png' %}'>
-		
+		<div class="col-md-10">
 		<div style="float: left">
-			中文材料区
+			
 			{% for d in docs_s %}
 			<div style="margin-bottom:5px">
 			{% if d.view %}
-			<span class="label label-success">已学  Learned</span>
+			<span class="label label-success">已学</span>
 			{% else %}
 				{% if d.must %}
-				<span class="label label-info">必学 compulsory </span>
+				<span class="label label-info">必学 </span>
 				{% else %}
-				<span class="label label-default">选学 optional</span>
+				<span class="label label-default">选学</span>
 				{% endif %}
 			{% endif %}
-			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }} <br> {{ d.doc_en }}</a>
+			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
 			</div>
 			{% endfor %}
 			
 			<br/><br/><br/>
-			英文材料区
+			
 			{% for d in docs_en %}
 			<div style="margin-bottom:5px">
 			{% if d.view %}
-			<span class="label label-success">已学  Learned</span>
+			<span class="label label-success">learning complete</span>
 			{% else %}
 				{% if d.must %}
-				<span class="label label-info">必学 compulsory </span>
+				<span class="label label-info">compulsory </span>
 				{% else %}
-				<span class="label label-default">选学 optional</span>
+				<span class="label label-default">optional</span>
 				{% endif %}
 			{% endif %}
-			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }} <br> {{ d.doc_en }}</a>
+			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
 			</div>
 			{% endfor %}
 		</div>
-		<button type="button" class="btn  btn-sm box-shadow"  onclick="javascript:history.back(-1);" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px;  float: right; margin-top: 15%; clear: both"> 返回上一级 <br> Back to the previous page </button>
+		</div>
+		<button type="button" class="btn  btn-sm box-shadow"  onclick="javascript:history.back(-1);" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px;  float: right; margin-top: 5%; margin-right: 5%; clear: both"> 返回上一级 <br> Return </button>
 
 	</div>
 </div>
@@ -125,13 +131,15 @@
 <div class="row">
 	<div class="col-md-12" style="margin-top: 5%; ">
 		
-		<img style="width: 20%; margin-right: 5%; float: left;" src = '{% static 'img/videofiles.png' %}'>
-		
+		<div class="col-md-2">
+		<img style="width: 100%; margin-right: 5%; float: left;" src = '{% static 'img/videofiles.png' %}'>
+		</div>
+		<div class="col-md-10">
 		<div style="float: left">	
 			{% for d in docs_v %}
 			<div style="margin-bottom:5px">
 			{% if d.view %}
-			<span class="label label-success">已学  Learned</span>
+			<span class="label label-success">已学 learning complete</span>
 			{% else %}
 				{% if d.must %}
 				<span class="label label-info">必学 compulsory </span>
@@ -143,7 +151,8 @@
 			</div>
 			{% endfor %}
 		</div>
-		<button type="button" class="btn  btn-sm box-shadow"  onclick="javascript:history.back(-1);" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px;  float: right; margin-top: 15%; clear: both"> 返回上一级 <br> Back to the previous page </button>
+		</div>
+		<button type="button" class="btn  btn-sm box-shadow"  onclick="javascript:history.back(-1);" style="color: white; background: #6F049C; border-radius: 50px 50px 50px 50px;  float: right; margin-top: 5%; margin-right: 5%; clear: both"> 返回上一级 <br> Return </button>
 
 	</div>
 </div>
