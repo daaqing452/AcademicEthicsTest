@@ -8,6 +8,7 @@
 /AcademicEthicsTest/*.pyc
 /AcademicEthicsTest/__pycache__/*.pyc
 /AcademicEthicsTest/settings.py
+/AcademicEthicsTest/__init__.py
 /SUser/.DS_Store
 /SUser/migrations/*
 /SUser/__pycache__/*.pyc
