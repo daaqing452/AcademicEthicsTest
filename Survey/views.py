@@ -120,6 +120,7 @@ def survey_report(request, username=''):
 		print(answers[0].score)
 		if len(answers) > 0 and answers[0].score > 99.9999:
 			jdata['res'] = 'yes'
+		jdata['foreigner'] = rdata['foreigner']
 		return HttpResponse(json.dumps(jdata))
 	
 	return render(request, "survey_report.html", rdata)

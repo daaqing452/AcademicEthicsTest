@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from SUser.models import *
 from Survey.models import *
+import re
 
 MAGIC_NUMBER = 1239874561
 
@@ -39,7 +40,7 @@ study_v = {
 	'清华《研究生学术与职业素养讲座》': ('http://www.xuetangx.com/courses/course-v1:TsinghuaX+Thu02016001+2016_T1/about', 'Lectures on Postgraduate Academic and Professional Development (Tsinghua University)')
 }
 study_en = [
-	'Commitment of Tsinghua Postgraduate Students to Comply with Regulations and Academic Norms',
+	'An overview of academic misconduct',
 	'Regulations on Academic Ethics at Tsinghua University',
 	'Measures for the Prevention and Regulations of Academic Misconduct',
 	'Orientation Handbook for New Postgraduate Students, Section 1 Study, Part 05 Academic Norms and Academic Ethics',
@@ -69,4 +70,5 @@ def get_request_basis(request):
 	suser = None
 	if request.user.is_authenticated:
 		rdata['suser'] = suser = SUser.objects.filter(username=request.user.username)[0]
+		rdata['foreigner'] = re.match('\d{5}8\d{4}', suser.username) is not None
 	return rdata, op, suser

@@ -14,7 +14,6 @@ import SUser.utils as Utils
 import json
 import os
 import time
-import re
 from urllib.request import urlopen
 
 
@@ -90,7 +89,7 @@ def show_files(request, pageid=0):
 		return render(request, 'permission_denied.html')
 
 	study_list = json.loads(suser.study_list)
-	foreigner = re.match('\d{5}8\d{4}', suser.username) is not None
+	foreigner = rdata['foreigner']
 
 	if op == 'view':
 		filename = request.POST.get('filename')
