@@ -16,6 +16,7 @@ study_must = [
 study_must_en = [
 	'Regulations on Academic Ethics at Tsinghua University',
 	'Measures for the Prevention and Regulations of Academic Misconduct',
+	'Academic Integrity Test (2020)',
 ]
 
 study_n = [
@@ -31,7 +32,7 @@ study_s = [
 	('清华大学学术道德规范', 'Regulations on Academic Ethics at Tsinghua University'),
 	('清华大学预防与处理学术不端行为办法', 'Measures for the Prevention and Regulations of Academic Misconduct at Tsinghua University'),
 	('学术道德与规范手册', 'Manual of Academic Ethics and Norms'),
-	('学术道德规范测试题（2019版）', 'Academic Integrity Test (2019)'),
+	('学术道德规范测试题（2020版）', 'Academic Integrity Test (2020)'),
 	('研究生新生必读手册，1学业篇，Part 05 学术规范与学术道德', 'Orientation Handbook for New Postgraduate Students, Section 1 Study, Part 05 Academic Norms and Academic Ethics'),
 	('研究生新生必读手册，3安全与纪律篇，Part 02 常见违纪行为的种类，学术不端、违反学习纪律的行为', 'Orientation Handbook for New Postgraduate Students, 3 Safety and Discipline, Part 02 Common Types of Misconduct, Academic Misconduct and Violations of the Study Disciplines'),
 ]
@@ -40,11 +41,12 @@ study_v = {
 	'清华《研究生学术与职业素养讲座》': ('http://www.xuetangx.com/courses/course-v1:TsinghuaX+Thu02016001+2016_T1/about', 'Lectures on Postgraduate Academic and Professional Development (Tsinghua University)')
 }
 study_en = [
-	'An overview of academic misconduct',
 	'Regulations on Academic Ethics at Tsinghua University',
 	'Measures for the Prevention and Regulations of Academic Misconduct',
+	'Academic Integrity Test (2020)',
+	'An overview of academic misconduct',
 	'Orientation Handbook for New Postgraduate Students, Section 1 Study, Part 05 Academic Norms and Academic Ethics',
-	'Orientation Handbook for New Postgraduate Students, 3 Safety and Discipline, Part 02 Common Types of Misconduct, Academic Misconduct and Violations of the Study Disciplines',
+	'Orientation Handbook for New Postgraduate Students, Section 3 Safety and Discipline, Part 02 Common Types of Misconduct, Academic Misconduct and Violations of the Study Disciplines',
 ]
 # study_v = {'北师大印波老师《科研伦理与学术规范》': 'http://www.xuetangx.com/courses/course-v1:BNU+2017053101X+2019_T1/about', '清华《学术之道》': 'http://www.xuetangx.com/courses/course-v1:TsinghuaX+10690012+2019_T1/about', '清华《研究生学术与职业素养讲座》': 'http://www.xuetangx.com/courses/course-v1:TsinghuaX+Thu02016001+2016_T1/about'}
 
