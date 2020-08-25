@@ -22,16 +22,16 @@
         <div class="panel-body">
             <div style = "background-image:url('{% static 'img/fillback.jpg' %}'); background-size: 100% 100%; width: 100%; height: 300px;">
                 <div class="input-group" style="margin-left: 10%; margin-bottom: 5%">
-                    <h1 style="margin-top: 20%">学术道德规范自测结果</h1>
+                    <h1 style="margin-top: 10%">学术道德规范自测结果<br>Result of Academic Ethics Self-testing</h1>
                 </div>
                 <div class="btn-group" name="my-btn-group" style="width: 100%; margin-bottom: 5%">
-                <button type="button" class="btn btn-sm box-shadow" onclick="window.location.href='/index'" style="float: right; color: #6F049C; background: white; border-radius: 50px 50px 50px 50px; width: 100px;margin-left: 5px; margin-right: 5px;"> 返回首页 </button>
-                <button type="button" class="btn btn-sm box-shadow"  onclick="retest()" style="float: right;color: #6F049C; background: white; border-radius: 50px 50px 50px 50px; width: 100px; margin-left: 5px"> 重新自测 </button>
-                <button type="button" class="btn btn-sm box-shadow" data-toggle="modal" data-target="#myModal_alert" style="float: right; color: #6F049C; background: white; border-radius: 50px 50px 50px 50px; width: 100px;" onclick="print_promise()" style="text-decoration:none; " >打印承诺书</button>
+                <button type="button" class="btn btn-sm box-shadow" onclick="window.location.href='/index'" style="float: right; color: #6F049C; background: white; border-radius: 50px 50px 50px 50px; width: 100px;margin-left: 5px; margin-right: 5px;"> 返回首页 <br> Home Page </button>
+                <button type="button" class="btn btn-sm box-shadow"  onclick="retest()" style="float: right;color: #6F049C; background: white; border-radius: 50px 50px 50px 50px; margin-left: 5px"> 重新自测 <br> Test Again </button>
+                <button type="button" class="btn btn-sm box-shadow" data-toggle="modal" data-target="#myModal_alert" style="float: right; color: #6F049C; background: white; border-radius: 50px 50px 50px 50px; " onclick="print_promise()" style="text-decoration:none; " >打印承诺书 <br> Print Commitment</button>
                 </div>
             </div>
             
-            <h4>你的得分：<span id="score"></span></h4><br/>
+            <h4>你的得分(Your Score)：<span id="score"></span></h4><br/>
             <div style="text-align:left;width: 100%" >
                 <table id="questions"  style="table-layout:fixed;word-break:break-all;border: 0px;width: 100%" >
                 <tbody>

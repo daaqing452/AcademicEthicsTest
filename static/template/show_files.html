@@ -100,7 +100,7 @@
 				<span class="label label-default">选学</span>
 				{% endif %}
 			{% endif %}
-			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }}</a>
+			<a url='/media/docs/{{ d.doc }}.pdf' filename='{{ d.doc }}' onclick='view_url(this)'>{{ d.doc }} <br> {{ d.doc_en }}</a>
 			</div>
 			{% endfor %}
 			
