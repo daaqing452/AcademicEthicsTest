@@ -34,7 +34,7 @@ study_s = [
 	('学术道德与规范手册', 'Manual of Academic Ethics and Norms'),
 	('学术道德规范测试题（2020版）', 'Academic Integrity Test (2020)'),
 	('研究生新生必读手册，1学业篇，Part 05 学术规范与学术道德', 'Orientation Handbook for New Postgraduate Students, Section 1 Study, Part 05 Academic Norms and Academic Ethics'),
-	('研究生新生必读手册，3安全与纪律篇，Part 02 常见违纪行为的种类，学术不端、违反学习纪律的行为', 'Orientation Handbook for New Postgraduate Students, 3 Safety and Discipline, Part 02 Common Types of Misconduct, Academic Misconduct and Violations of the Study Disciplines'),
+	('研究生新生必读手册，3安全与纪律篇，Part 02 常见违纪行为的种类，学术不端、违反学习纪律的行为', 'Orientation Handbook for New Postgraduate Students, Section 3 Safety and Discipline, Part 02 Common Types of Misconduct, Academic Misconduct and Violations of the Study Disciplines'),
 ]
 study_v = {
 	'清华《学术之道》': ('http://www.xuetangx.com/courses/course-v1:TsinghuaX+10690012+2019_T1/about', 'Lectures on the Principles of Academic Research (Tsinghua University)'),
