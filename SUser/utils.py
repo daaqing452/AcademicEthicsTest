@@ -38,13 +38,16 @@ study_s = [
 ]
 study_v = {
 	'清华《学术之道》': ('http://www.xuetangx.com/courses/course-v1:TsinghuaX+10690012+2019_T1/about', 'Lectures on the Principles of Academic Research (Tsinghua University)'),
-	'清华《研究生学术与职业素养讲座》': ('http://www.xuetangx.com/courses/course-v1:TsinghuaX+Thu02016001+2016_T1/about', 'Lectures on Postgraduate Academic and Professional Development (Tsinghua University)')
+	'清华《研究生学术与职业素养讲座》': ('http://www.xuetangx.com/courses/course-v1:TsinghuaX+Thu02016001+2016_T1/about', 'Lectures on Postgraduate Academic and Professional Development (Tsinghua University)'),
+	'清华《学术黑镜》EP01《凝望》': ('https://v.qq.com/x/page/o0863vav041.html', 'Tsinghua Black Mirror Academic version: EP01 Gaze'),
+	'清华《学术黑镜》EP02《来电》': ('https://v.qq.com/x/page/y08634jn89y.html', 'Tsinghua Black Mirror Academic version: EP02 Phone Call'),
+	'清华《学术黑镜》EP03《污点》': ('https://v.qq.com/x/page/a086399aejg.html', 'Tsinghua Black Mirror Academic version: EP03 Stain'),
 }
 study_en = [
 	'Regulations on Academic Ethics at Tsinghua University',
 	'Measures for the Prevention and Regulations of Academic Misconduct',
 	'Academic Integrity Test (2020)',
-	'An overview of academic misconduct',
+	'An Overview of Academic Misconduct',
 	'Orientation Handbook for New Postgraduate Students, Section 1 Study, Part 05 Academic Norms and Academic Ethics',
 	'Orientation Handbook for New Postgraduate Students, Section 3 Safety and Discipline, Part 02 Common Types of Misconduct, Academic Misconduct and Violations of the Study Disciplines',
 ]
