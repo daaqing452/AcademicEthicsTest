@@ -37,7 +37,7 @@ def survey_fill(request):
 	if suser is None:
 		return render(request, 'permission_denied.html')
 	if not suser.study_finish:
-		return render(request, 'permission_denied.html', {'alert': True, 'alert_info': '请先完成所有学术道德规范自学中的必学任务！'})
+		return render(request, 'permission_denied.html', {'alert': True, 'alert_info_c': '请先完成所有学术道德规范自学中的必学任务！', 'alert_info_e': 'Please complete all the required tasks in Academic Ethics Self-learning first.'})
 
 	if op == 'load':
 		jdata = {}

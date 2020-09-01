@@ -5,7 +5,7 @@
 <script>
 $(document).ready(function(){
     {% if alert %}
-    alert("{{ alert_info }}");
+    alert("{{ alert_info_c }}\n{{ alert_info_e }}");
     window.location.href='/show_files/';
     {% endif %}
 });

@@ -48,7 +48,7 @@ function check_filled() {
             }
         }
         if(questions[i].filled_answer.length == 0){
-            wrong_info += "第"+(i+1)+"题没有填写\n";
+            wrong_info += "第"+(i+1)+"题没有填写 You haven't filled in Question "+(i+1)+"<br/>";
         }
     }
     return wrong_info;
@@ -67,7 +67,7 @@ function submit(){
         data: {'op': 'submit', 'qstring': Qstring},
         success: function(data) {
             var data = JSON.parse(data);
-            alert("提交成功！你是第" + data['n_answer'] + '个完成自测的！', 1);
+            alert('提交成功！你是第' + data['n_answer'] + '个完成自测的！<br/>Submitted! You are the ' +  + data['n_answer'] + ' to complete the Self-testing!', 1);
             //window.location.reload();
         }
     });

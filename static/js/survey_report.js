@@ -80,7 +80,7 @@ function print_promise() {
                     window.location.href='/media/preload/清华大学研究生遵守管理规定与学术规范承诺书.pdf';
                 }
             } else {
-                alert('打印承诺书需要自测分数达到100分<br/>若未达到请重新自测', 1);
+                alert('打印承诺书需要自测分数达到100分，若未达到请重新自测。<br/>Only when you get the full score in the self-testing can you print the Commitment. If not, please take the test again.', 1);
             }
         }
     });
